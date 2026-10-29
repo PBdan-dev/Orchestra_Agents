@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "properties": {
+    "format": { "enum": ["long", "court", "iso"], "description": "Par défaut : long (« jeudi 29 octobre 2026, 14 h 20 »)." },
+    "fuseau": { "type": "string", "description": "Fuseau IANA. Par défaut : Europe/Paris." }
+  }
+}

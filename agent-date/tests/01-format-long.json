@@ -1,0 +1,29 @@
+{
+  "description": "format long",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-date",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "date-du-jour",
+    "but": "Donner la date du jour",
+    "critere_reussite": "texte au format « jeudi 29 octobre 2026, 14 h 20 », date du jour",
+    "contexte": "",
+    "limites": {},
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-01-format-long",
+    "donnees": {}
+  },
+  "critere_reussite": "texte au format « jeudi 29 octobre 2026, 14 h 20 », date du jour",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "termine"
+  ],
+  "evenements_attendus": [
+    "demarrage",
+    "termine"
+  ]
+}

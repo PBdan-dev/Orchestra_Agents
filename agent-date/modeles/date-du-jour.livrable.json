@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "description": "Livrable texte dans resultat.texte, aucun fichier.",
+  "required": ["texte"],
+  "properties": {
+    "texte": { "type": "string", "description": "long : « jeudi 29 octobre 2026, 14 h 20 » ; court : « 29/10/2026 » ; iso : « 2026-10-29T14:20:00+01:00 »." }
+  }
+}

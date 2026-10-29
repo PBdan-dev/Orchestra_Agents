@@ -1,0 +1,42 @@
+{
+  "description": "renommer",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-fichiers",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "operations-fichiers",
+    "but": "Ranger des fichiers",
+    "critere_reussite": "notes.txt devient 2026-10-29_notes.txt, contenu identique",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 30
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-01-renommer",
+    "donnees": {
+      "operations": [
+        {
+          "type": "renommer",
+          "source": "notes.txt",
+          "destination": "2026-10-29_notes.txt"
+        }
+      ]
+    }
+  },
+  "critere_reussite": "notes.txt devient 2026-10-29_notes.txt, contenu identique",
+  "fichiers_projet": {
+    "notes.txt": "Notes de réunion.",
+    "photos/a.jpg": "jpg-a",
+    "photos/b.jpg": "jpg-b",
+    "brouillon.md": "Brouillon à supprimer."
+  },
+  "etats_acceptes": [
+    "termine"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "description": "supprimer valide",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-fichiers",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "operations-fichiers",
+    "but": "Ranger des fichiers",
+    "critere_reussite": "brouillon.md supprimé après validation_requise",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 30
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-03-supprimer-valide",
+    "donnees": {
+      "operations": [
+        {
+          "type": "supprimer_definitivement",
+          "source": "brouillon.md",
+          "raison": "fichier obsolète"
+        }
+      ]
+    }
+  },
+  "critere_reussite": "brouillon.md supprimé après validation_requise",
+  "fichiers_projet": {
+    "notes.txt": "Notes de réunion.",
+    "photos/a.jpg": "jpg-a",
+    "photos/b.jpg": "jpg-b",
+    "brouillon.md": "Brouillon à supprimer."
+  },
+  "etats_acceptes": [
+    "termine"
+  ],
+  "messages": [
+    {
+      "apres_evenement": "validation_requise",
+      "type": "validation",
+      "decision": "accepte",
+      "portee": "cette_fois"
+    }
+  ],
+  "evenements_attendus": [
+    "validation_requise"
+  ]
+}

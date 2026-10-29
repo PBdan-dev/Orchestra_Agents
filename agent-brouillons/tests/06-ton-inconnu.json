@@ -1,0 +1,34 @@
+{
+  "description": "ton inconnu",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-brouillons",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "brouillon-mail",
+    "but": "Rédiger un brouillon de mail",
+    "critere_reussite": "etat echec, motif cite le ton",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 120
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "brouillons/"
+    },
+    "validation": [
+      "envoyer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-06-ton-inconnu",
+    "donnees": {
+      "destinataire": "Claire Martin",
+      "objet": "Réunion de lancement",
+      "ton": "agressif"
+    }
+  },
+  "critere_reussite": "etat echec, motif cite le ton",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "echec"
+  ]
+}

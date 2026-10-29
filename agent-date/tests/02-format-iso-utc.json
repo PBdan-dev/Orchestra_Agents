@@ -1,0 +1,28 @@
+{
+  "description": "format iso utc",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-date",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "date-du-jour",
+    "but": "Donner la date du jour",
+    "critere_reussite": "texte ISO 8601 se terminant par +00:00",
+    "contexte": "",
+    "limites": {},
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-02-format-iso-utc",
+    "donnees": {
+      "format": "iso",
+      "fuseau": "UTC"
+    }
+  },
+  "critere_reussite": "texte ISO 8601 se terminant par +00:00",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "termine"
+  ]
+}

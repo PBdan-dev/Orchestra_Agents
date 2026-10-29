@@ -1,0 +1,43 @@
+{
+  "description": "arret pendant redaction",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-brouillons",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "brouillon-mail",
+    "but": "Rédiger un brouillon de mail",
+    "critere_reussite": "etat arrete_proprement, aucun brouillon écrit",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 120
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "brouillons/"
+    },
+    "validation": [
+      "envoyer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-09-arret-pendant-redaction",
+    "donnees": {
+      "destinataire": "Claire Martin",
+      "objet": "Réunion de lancement",
+      "points": [
+        "remercier"
+      ]
+    }
+  },
+  "critere_reussite": "etat arrete_proprement, aucun brouillon écrit",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "arrete_proprement"
+  ],
+  "messages": [
+    {
+      "apres_evenement": "etape",
+      "type": "arret"
+    }
+  ],
+  "delai_porte_s": 0.5
+}

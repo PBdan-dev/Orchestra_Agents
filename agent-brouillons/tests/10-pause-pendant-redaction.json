@@ -1,0 +1,50 @@
+{
+  "description": "pause pendant redaction",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-brouillons",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "brouillon-mail",
+    "but": "Rédiger un brouillon de mail",
+    "critere_reussite": "événement en_pause puis brouillon écrit",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 120
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "brouillons/"
+    },
+    "validation": [
+      "envoyer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-10-pause-pendant-redaction",
+    "donnees": {
+      "destinataire": "Claire Martin",
+      "objet": "Réunion de lancement",
+      "points": [
+        "remercier"
+      ]
+    }
+  },
+  "critere_reussite": "événement en_pause puis brouillon écrit",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "termine"
+  ],
+  "evenements_attendus": [
+    "en_pause"
+  ],
+  "messages": [
+    {
+      "apres_evenement": "etape",
+      "type": "pause"
+    },
+    {
+      "apres_evenement": "en_pause",
+      "type": "reprendre"
+    }
+  ],
+  "delai_porte_s": 0.5
+}

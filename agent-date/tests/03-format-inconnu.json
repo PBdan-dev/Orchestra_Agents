@@ -1,0 +1,27 @@
+{
+  "description": "format inconnu",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-date",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "date-du-jour",
+    "but": "Donner la date du jour",
+    "critere_reussite": "etat = echec, motif cite le format",
+    "contexte": "",
+    "limites": {},
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-03-format-inconnu",
+    "donnees": {
+      "format": "americain"
+    }
+  },
+  "critere_reussite": "etat = echec, motif cite le format",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "echec"
+  ]
+}
