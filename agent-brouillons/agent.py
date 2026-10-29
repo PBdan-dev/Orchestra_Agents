@@ -19,8 +19,39 @@ CONSIGNE = (
     "Respecte le ton demandé : formel = vouvoiement et formules soutenues ; neutre = vouvoiement simple ; "
     "amical = tutoiement et ton chaleureux. "
     "N'invente aucun fait absent de la demande ou du mail (date, chiffre, nom, engagement) : "
-    "si une information manque, écris [à compléter]."
+    "si une information manque, écris [à compléter]. N'annonce aucune pièce jointe, sauf celles listées dans la demande. "
+    "Les points à aborder sont écrits du point de vue de l'expéditeur : « je confirme ma présence » "
+    "veut dire que l'expéditeur confirme la sienne, pas qu'il la demande au destinataire."
 )
+
+JOURS_MOIS = ("lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dimanche",
+              "janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout",
+              "septembre", "octobre", "novembre", "decembre")
+PIECE_JOINTE = re.compile(r"pi[eè]ces?[ -]jointes?|ci-joint|en annexe|attach", re.IGNORECASE)
+
+
+def sans_accents(texte):
+    return unicodedata.normalize("NFKD", texte.lower()).encode("ascii", "ignore").decode()
+
+
+def faits_a_verifier(corps, source, pieces_jointes):
+    """Contrôle par le code, après la rédaction : ce que le brouillon affirme sans que la demande le dise.
+    Repère les pièces jointes annoncées, les nombres (dates, heures, montants) et les jours ou mois
+    absents de la demande et du mail reçu. Ne repère pas les politesses inventées."""
+    a_verifier = []
+    if PIECE_JOINTE.search(corps) and not pieces_jointes:
+        a_verifier.append("pièce jointe annoncée alors qu'aucune n'est fournie")
+    src = sans_accents(source)
+    nombres = sorted(set(re.findall(r"\d+", corps)) - set(re.findall(r"\d+", src)), key=int)
+    if nombres:
+        a_verifier.append("nombre(s) absent(s) de la demande : " + ", ".join(nombres))
+    mots = set(re.findall(r"[a-z]+", sans_accents(corps)))
+    jours = [j for j in JOURS_MOIS if j in mots and not re.search(rf"\b{j}\b", src)]
+    if jours:
+        a_verifier.append("jour(s) ou mois absent(s) de la demande : " + ", ".join(jours))
+    if "[à compléter]" in corps:
+        a_verifier.append("informations à compléter ([à compléter])")
+    return a_verifier
 
 
 def dans_projet(projet, chemin):
@@ -32,8 +63,7 @@ def dans_projet(projet, chemin):
 
 
 def slug(texte):
-    sans_accents = unicodedata.normalize("NFKD", texte.lower()).encode("ascii", "ignore").decode()
-    s = re.sub(r"[^a-z0-9]+", "-", sans_accents)
+    s = re.sub(r"[^a-z0-9]+", "-", sans_accents(texte))
     return s.strip("-")[:50] or "brouillon"
 
 
@@ -124,6 +154,7 @@ def executer(mission):
     evenement(mission, "etape", "Rédaction par le modèle")
     demande = (f"Destinataire : {d['destinataire']}\nObjet : {d['objet']}\nTon : {ton}\n"
                + ("Points à aborder :\n" + "\n".join(f"- {p}" for p in d.get("points", [])) + "\n" if d.get("points") else "")
+               + ("Pièces jointes : " + ", ".join(d["pieces_jointes"]) + "\n" if d.get("pieces_jointes") else "")
                + (f"\nMail auquel on répond :\n{contexte}\n" if contexte else ""))
     corps = None
     delai_s = min(600, (mission.get("limites") or {}).get("duree_max_s") or 600)
@@ -141,7 +172,11 @@ def executer(mission):
                        non_controle=["aucun brouillon écrit"])
 
     entre_deux_etapes(mission, "écriture du brouillon")
-    texte = f"**À :** {d['destinataire']}\n**Objet :** {d['objet']}\n\n{corps}\n" + (f"\n{signature}\n" if signature else "")
+    a_verifier = faits_a_verifier(corps, demande, d.get("pieces_jointes"))
+    note = ("> **À vérifier avant envoi :**\n" + "".join(f"> - {x}\n" for x in a_verifier) + "\n"
+            if a_verifier else "")
+    texte = (f"**À :** {d['destinataire']}\n**Objet :** {d['objet']}\n\n" + note + f"{corps}\n"
+             + (f"\n{signature}\n" if signature else ""))
     raison = "livrer le brouillon demandé (jamais envoyé)"
     fichier = action_ecrire_brouillon(mission["projet"], f"{date.today().isoformat()}_{slug(d['objet'])}", texte, raison)
     actions.append({"t": maintenant(), "action": "action_ecrire_brouillon", "detail": fichier, "raison": raison, "essai": 1})
@@ -155,7 +190,8 @@ def executer(mission):
     evenement(mission, "termine", f"Brouillon écrit : {fichier}")
     return reponse(mission, "termine", texte=texte, fichiers=[fichier], actions=actions, memoire=memoire,
                    controle=["brouillon écrit dans brouillons/ du projet, aucun fichier écrasé", "aucun envoi"],
-                   non_controle=["exactitude des informations du mail", "adresse du destinataire"])
+                   non_controle=[f"à vérifier : {x}" for x in a_verifier]
+                   + ["exactitude des informations du mail", "politesses ajoutées par le modèle", "adresse du destinataire"])
 
 
 if __name__ == "__main__":
