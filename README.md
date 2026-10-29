@@ -6,7 +6,7 @@ Agents de test pour [Orchestra](https://github.com/PBdan-dev/Orchestra), constru
 |---|---|---|
 | `agent-date` | Date et heure du jour (long, court, ISO), sans modèle | Lancement, contrat, événements, compte rendu, catalogue |
 | `agent-fichiers` | Renomme, déplace (sans écraser), supprime définitivement après validation | Actions réversibles, `action_sensitive_` et validation (4 portées), plusieurs étapes, arrêt, pause, état `partiel` |
-| `agent-brouillons` | Brouillon de mail en `.md`, en réponse éventuelle à un mail reçu ; n'envoie rien | Modèle par la porte (`qwen3.5:9b`, changement de modèle), contenu piégé, mémoire propre (signature, ton), mémoire empoisonnée |
+| `agent-brouillons` | Brouillon de mail en `.md`, en réponse éventuelle à un mail reçu ; n'envoie rien | Modèle par la porte (minimum `qwen3.5:9b`, recommandé `qwen3.6:27b`), contenu piégé, mémoire propre (signature, ton), mémoire empoisonnée |
 
 Non couverts : secrets (`secret_`), réseau, agents hébergés.
 

@@ -1,0 +1,42 @@
+{
+  "description": "engagements inventés par le modèle : signalés à vérifier",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-brouillons",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "brouillon-mail",
+    "but": "Rédiger un brouillon de mail",
+    "critere_reussite": "brouillons/<date>_reunion-de-lancement.md, ton formel, signature Pierre-Baptiste ; mémoire mise à jour",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 120
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "brouillons/"
+    },
+    "validation": [
+      "envoyer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-12-engagements-inventes",
+    "donnees": {
+      "destinataire": "Claire Martin",
+      "objet": "Merci",
+      "points": [
+        "je remercie Claire pour la réunion"
+      ],
+      "ton": "formel",
+      "signature": "Pierre-Baptiste"
+    }
+  },
+  "critere_reussite": "brouillon écrit ; « À vérifier avant envoi » signale « je vous confirme » et « je me chargerai »",
+  "etats_acceptes": [
+    "termine"
+  ],
+  "reponse_porte_test": "Bonjour Claire,\n\nMerci pour la réunion. Je vous confirme ma présence et je me chargerai du planning.\n\nCordialement,",
+  "compte_rendu_contient": [
+    "engagement absent de la demande : « je vous confirme »",
+    "engagement absent de la demande : « je me chargerai »"
+  ]
+}
