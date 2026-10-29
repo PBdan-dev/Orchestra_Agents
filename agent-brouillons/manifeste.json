@@ -2,7 +2,7 @@
   "format_manifeste": "2.0",
   "id": "agent-brouillons",
   "name": "Brouillons de mails",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": { "nom": "PB", "contact": "https://github.com/PBdan-dev" },
   "description": "Rédige un brouillon de mail en français dans un fichier .md du projet, éventuellement en réponse à un mail reçu. N'envoie jamais rien.",
   "categorie": "communication",
@@ -31,7 +31,7 @@
     { "type": "brouillon-mail", "modele_demande": "modeles/brouillon-mail.demande.json", "modele_livrable": "modeles/brouillon-mail.livrable.json" }
   ],
   "execution": { "type": "local", "systemes": ["windows-x64"], "commande": "python agent.py", "protocole": "stdio-json" },
-  "modele": { "via": "porte", "demande": "qwen3.5:9b", "minimum": "qwen3.5:9b", "recommande": "qwen3.5:9b" },
+  "modele": { "via": "porte", "demande": "inherit", "minimum": "qwen3.5:9b", "recommande": "qwen3.6:27b" },
   "ressources": { "vram_go": 8, "gpu_exclusif": false },
   "reseau_declare": [],
   "acces_declares": { "fichiers": "dossier du projet de la mission ; agents/installes/agent-brouillons/memoire/" },

@@ -9,7 +9,7 @@ from contrat import champs_manquants, entre_deux_etapes, evenement, lancer, main
 
 ICI = Path(__file__).resolve().parent
 PREFERENCES = ICI / "memoire" / "preferences.json"
-MODELE = "qwen3.5:9b"                       # identique à modele.demande du manifeste
+MODELE = os.environ.get("ORCHESTRA_MODELE", "inherit")   # « inherit » : la porte choisit (manifeste : modele.demande)
 TONS = ("formel", "neutre", "amical")
 CONSIGNE = (
     "Tu rédiges des brouillons de mails en français, clairs et prêts à relire. "
@@ -28,6 +28,16 @@ JOURS_MOIS = ("lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi", "dima
               "janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout",
               "septembre", "octobre", "novembre", "decembre")
 PIECE_JOINTE = re.compile(r"pi[eè]ces?[ -]jointes?|ci-joint|en annexe|attach", re.IGNORECASE)
+# Engagements de l'expéditeur : (motif cherché dans le brouillon, racine qui doit figurer dans la demande).
+# Textes comparés sans accents ni majuscules.
+ENGAGEMENTS = (
+    (r"\bje (?:vous |te )?confirme\b", "confirm"),
+    (r"\bje (?:serai|suis) (?:present|presente|disponible|la)\b", "presen|dispo"),
+    (r"\bje m'engage\b", "engag"),
+    (r"\bje (?:me charge|me chargerai|m'occupe|m'occuperai)\b", "charg|occup"),
+    (r"\bje (?:vous |t'|te )?(?:enverrai|envoie|ferai parvenir|transmettrai)\b", "envoi|enverr|parven|transm"),
+    (r"\bje (?:vous |te )?(?:rappellerai|recontacterai)\b", "rappel|recontact"),
+)
 
 
 def sans_accents(texte):
@@ -37,7 +47,8 @@ def sans_accents(texte):
 def faits_a_verifier(corps, source, pieces_jointes):
     """Contrôle par le code, après la rédaction : ce que le brouillon affirme sans que la demande le dise.
     Repère les pièces jointes annoncées, les nombres (dates, heures, montants) et les jours ou mois
-    absents de la demande et du mail reçu. Ne repère pas les politesses inventées."""
+    absents de la demande et du mail reçu, et les engagements de l'expéditeur (« je confirme »,
+    « je m'en charge »…) que la demande ne contient pas. Ne repère pas les politesses inventées."""
     a_verifier = []
     if PIECE_JOINTE.search(corps) and not pieces_jointes:
         a_verifier.append("pièce jointe annoncée alors qu'aucune n'est fournie")
@@ -49,6 +60,11 @@ def faits_a_verifier(corps, source, pieces_jointes):
     jours = [j for j in JOURS_MOIS if j in mots and not re.search(rf"\b{j}\b", src)]
     if jours:
         a_verifier.append("jour(s) ou mois absent(s) de la demande : " + ", ".join(jours))
+    corps_sa = sans_accents(corps)
+    for motif, racine in ENGAGEMENTS:
+        trouve = re.search(motif, corps_sa)
+        if trouve and not re.search(racine, src):
+            a_verifier.append(f"engagement absent de la demande : « {trouve.group(0)} »")
     if "[à compléter]" in corps:
         a_verifier.append("informations à compléter ([à compléter])")
     return a_verifier
