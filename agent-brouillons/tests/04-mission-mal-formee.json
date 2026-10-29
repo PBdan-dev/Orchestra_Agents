@@ -1,0 +1,33 @@
+{
+  "description": "mission mal formee",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-brouillons",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "brouillon-mail",
+    "but": "Rédiger un brouillon de mail",
+    "critere_reussite": "etat echec, motif cite donnees.objet",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 120
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "brouillons/"
+    },
+    "validation": [
+      "envoyer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-04-mission-mal-formee",
+    "donnees": {
+      "destinataire": "Claire"
+    }
+  },
+  "critere_reussite": "etat echec, motif cite donnees.objet",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "echec"
+  ],
+  "mal_formee": true
+}

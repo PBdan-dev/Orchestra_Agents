@@ -1,0 +1,32 @@
+{
+  "description": "arret propre (agent en une étape : peut finir avant de lire le message)",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-date",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "date-du-jour",
+    "but": "Donner la date du jour",
+    "critere_reussite": "etat = arrete_proprement",
+    "contexte": "",
+    "limites": {},
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-06-arret-propre",
+    "donnees": {}
+  },
+  "critere_reussite": "etat = arrete_proprement",
+  "fichiers_projet": {},
+  "messages": [
+    {
+      "apres_evenement": "demarrage",
+      "type": "arret"
+    }
+  ],
+  "etats_acceptes": [
+    "termine",
+    "arrete_proprement"
+  ]
+}

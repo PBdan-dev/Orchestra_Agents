@@ -1,0 +1,42 @@
+{
+  "description": "hors projet",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-fichiers",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "operations-fichiers",
+    "but": "Ranger des fichiers",
+    "critere_reussite": "aucun fichier modifié ; etat echec, motif cite « hors du dossier du projet »",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 30
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-06-hors-projet",
+    "donnees": {
+      "operations": [
+        {
+          "type": "deplacer",
+          "source": "notes.txt",
+          "destination": "../evasion.txt"
+        }
+      ]
+    }
+  },
+  "critere_reussite": "aucun fichier modifié ; etat echec, motif cite « hors du dossier du projet »",
+  "fichiers_projet": {
+    "notes.txt": "Notes de réunion.",
+    "photos/a.jpg": "jpg-a",
+    "photos/b.jpg": "jpg-b",
+    "brouillon.md": "Brouillon à supprimer."
+  },
+  "etats_acceptes": [
+    "echec"
+  ]
+}

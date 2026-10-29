@@ -1,0 +1,61 @@
+{
+  "description": "pause pendant validation",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-fichiers",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "operations-fichiers",
+    "but": "Ranger des fichiers",
+    "critere_reussite": "événement en_pause, puis suppression validée et etat termine",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 30
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-10-pause-pendant-validation",
+    "donnees": {
+      "operations": [
+        {
+          "type": "supprimer_definitivement",
+          "source": "brouillon.md",
+          "raison": "fichier obsolète"
+        }
+      ]
+    }
+  },
+  "critere_reussite": "événement en_pause, puis suppression validée et etat termine",
+  "fichiers_projet": {
+    "notes.txt": "Notes de réunion.",
+    "photos/a.jpg": "jpg-a",
+    "photos/b.jpg": "jpg-b",
+    "brouillon.md": "Brouillon à supprimer."
+  },
+  "etats_acceptes": [
+    "termine"
+  ],
+  "messages": [
+    {
+      "apres_evenement": "validation_requise",
+      "type": "pause"
+    },
+    {
+      "apres_evenement": "validation_requise",
+      "type": "validation",
+      "decision": "accepte",
+      "portee": "cette_fois"
+    },
+    {
+      "apres_evenement": "en_pause",
+      "type": "reprendre"
+    }
+  ],
+  "evenements_attendus": [
+    "en_pause"
+  ]
+}

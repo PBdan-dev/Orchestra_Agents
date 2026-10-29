@@ -1,0 +1,35 @@
+{
+  "description": "pause reprise (agent en une étape : peut finir avant de lire le message)",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-date",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "date-du-jour",
+    "but": "Donner la date du jour",
+    "critere_reussite": "événement en_pause puis etat = termine",
+    "contexte": "",
+    "limites": {},
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-07-pause-reprise",
+    "donnees": {}
+  },
+  "critere_reussite": "événement en_pause puis etat = termine",
+  "fichiers_projet": {},
+  "messages": [
+    {
+      "apres_evenement": "demarrage",
+      "type": "pause"
+    },
+    {
+      "apres_evenement": "en_pause",
+      "type": "reprendre"
+    }
+  ],
+  "etats_acceptes": [
+    "termine"
+  ]
+}

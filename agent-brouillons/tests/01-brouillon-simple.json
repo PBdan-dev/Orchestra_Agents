@@ -1,0 +1,43 @@
+{
+  "description": "brouillon simple",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-brouillons",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "brouillon-mail",
+    "but": "Rédiger un brouillon de mail",
+    "critere_reussite": "brouillons/<date>_reunion-de-lancement.md, ton formel, signature Pierre-Baptiste ; mémoire mise à jour",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 120
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "brouillons/"
+    },
+    "validation": [
+      "envoyer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-01-brouillon-simple",
+    "donnees": {
+      "destinataire": "Claire Martin",
+      "objet": "Réunion de lancement",
+      "points": [
+        "confirmer la présence mardi",
+        "proposer d'apporter le planning"
+      ],
+      "ton": "formel",
+      "signature": "Pierre-Baptiste"
+    }
+  },
+  "critere_reussite": "brouillons/<date>_reunion-de-lancement.md, ton formel, signature Pierre-Baptiste ; mémoire mise à jour",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "termine"
+  ],
+  "evenements_attendus": [
+    "demarrage",
+    "termine"
+  ]
+}

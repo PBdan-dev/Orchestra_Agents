@@ -1,0 +1,42 @@
+{
+  "description": "destination existante",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-fichiers",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "operations-fichiers",
+    "but": "Ranger des fichiers",
+    "critere_reussite": "aucun fichier modifié ; etat echec, motif cite « existe déjà »",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 30
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-05-destination-existante",
+    "donnees": {
+      "operations": [
+        {
+          "type": "renommer",
+          "source": "notes.txt",
+          "destination": "brouillon.md"
+        }
+      ]
+    }
+  },
+  "critere_reussite": "aucun fichier modifié ; etat echec, motif cite « existe déjà »",
+  "fichiers_projet": {
+    "notes.txt": "Notes de réunion.",
+    "photos/a.jpg": "jpg-a",
+    "photos/b.jpg": "jpg-b",
+    "brouillon.md": "Brouillon à supprimer."
+  },
+  "etats_acceptes": [
+    "echec"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "required": ["destinataire", "objet"],
+  "properties": {
+    "destinataire": { "type": "string", "description": "Nom ou adresse, recopié tel quel." },
+    "objet": { "type": "string" },
+    "points": { "type": "array", "items": { "type": "string" }, "description": "Idées à faire passer." },
+    "ton": { "enum": ["formel", "neutre", "amical"], "description": "Par défaut : ton préféré retenu, sinon neutre." },
+    "reponse_a": { "type": "string", "description": "Fichier .txt ou .md du projet contenant le mail reçu." },
+    "signature": { "type": "string", "description": "Retenue pour les missions suivantes." }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "format_manifeste": "2.0",
+  "id": "agent-fichiers",
+  "name": "Fichiers : renommer, déplacer, supprimer",
+  "version": "1.0.0",
+  "author": { "nom": "PB", "contact": "https://github.com/PBdan-dev" },
+  "description": "Renomme et déplace des fichiers ou des dossiers du projet sans rien écraser ; supprime définitivement après validation de l'utilisateur.",
+  "categorie": "fichiers",
+  "capabilities": ["fichiers", "dossiers", "renommer", "déplacer", "ranger", "supprimer"],
+  "fiche": {
+    "sait_faire": [
+      "Renommer un fichier ou un dossier du projet",
+      "Déplacer un fichier ou un dossier dans le projet, sous-dossiers créés si besoin",
+      "Supprimer définitivement un fichier ou un dossier, après validation"
+    ],
+    "ne_sait_pas_faire": [
+      "Agir hors du dossier du projet",
+      "Écraser un fichier existant",
+      "Décider seul quoi ranger : la liste des opérations est donnée par la mission",
+      "Mettre à la corbeille (la suppression est définitive)"
+    ],
+    "fonctions": [
+      { "nom": "action_deplacer", "description": "Renomme ou déplace un fichier ou un dossier, refuse d'écraser une destination existante.", "expose_au_modele": false },
+      { "nom": "action_sensitive_supprimer", "description": "Supprime définitivement un fichier ou un dossier, après validation.", "expose_au_modele": false }
+    ],
+    "consignes": "N'écrase jamais rien. Ne supprime jamais sans validation. Refuse tout chemin hors du projet."
+  },
+  "taches": [
+    { "type": "operations-fichiers", "modele_demande": "modeles/operations-fichiers.demande.json", "modele_livrable": "modeles/operations-fichiers.livrable.json" }
+  ],
+  "execution": { "type": "local", "systemes": ["windows-x64"], "commande": "python agent.py", "protocole": "stdio-json" },
+  "modele": { "via": "porte", "demande": "aucun", "minimum": "aucun", "recommande": "aucun" },
+  "ressources": { "vram_go": 0, "gpu_exclusif": false },
+  "reseau_declare": [],
+  "acces_declares": { "fichiers": "dossier du projet de la mission uniquement" },
+  "identifiants": [],
+  "memoire_propre": false,
+  "compatibilite": { "orchestra_min": "1.0.0", "contrat": 1 },
+  "certification": { "statut": "non_certifie" },
+  "licence": "MIT",
+  "color": "#4fd1c5",
+  "icon": "folder"
+}

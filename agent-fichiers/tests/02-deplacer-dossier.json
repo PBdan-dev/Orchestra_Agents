@@ -1,0 +1,42 @@
+{
+  "description": "deplacer dossier",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-fichiers",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "operations-fichiers",
+    "but": "Ranger des fichiers",
+    "critere_reussite": "photos/ déplacé avec ses 2 fichiers dans archives/2026/",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 30
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-02-deplacer-dossier",
+    "donnees": {
+      "operations": [
+        {
+          "type": "deplacer",
+          "source": "photos",
+          "destination": "archives/2026/photos"
+        }
+      ]
+    }
+  },
+  "critere_reussite": "photos/ déplacé avec ses 2 fichiers dans archives/2026/",
+  "fichiers_projet": {
+    "notes.txt": "Notes de réunion.",
+    "photos/a.jpg": "jpg-a",
+    "photos/b.jpg": "jpg-b",
+    "brouillon.md": "Brouillon à supprimer."
+  },
+  "etats_acceptes": [
+    "termine"
+  ]
+}
