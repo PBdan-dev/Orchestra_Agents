@@ -1,12 +1,46 @@
 {
   "type": "object",
-  "required": ["destinataire", "objet"],
+  "required": [
+    "destinataire",
+    "objet"
+  ],
   "properties": {
-    "destinataire": { "type": "string", "description": "Nom ou adresse, recopié tel quel." },
-    "objet": { "type": "string" },
-    "points": { "type": "array", "items": { "type": "string" }, "description": "Idées à faire passer." },
-    "ton": { "enum": ["formel", "neutre", "amical"], "description": "Par défaut : ton préféré retenu, sinon neutre." },
-    "reponse_a": { "type": "string", "description": "Fichier .txt ou .md du projet contenant le mail reçu." },
-    "signature": { "type": "string", "description": "Retenue pour les missions suivantes." }
+    "destinataire": {
+      "type": "string",
+      "description": "Nom ou adresse, recopié tel quel."
+    },
+    "objet": {
+      "type": "string"
+    },
+    "points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Idées à faire passer, écrites à la première personne, du point de vue de l'expéditeur (ex. « je confirme ma présence mardi »)."
+    },
+    "ton": {
+      "enum": [
+        "formel",
+        "neutre",
+        "amical"
+      ],
+      "description": "Par défaut : ton préféré retenu, sinon neutre."
+    },
+    "reponse_a": {
+      "type": "string",
+      "description": "Fichier .txt ou .md du projet contenant le mail reçu."
+    },
+    "signature": {
+      "type": "string",
+      "description": "Retenue pour les missions suivantes."
+    },
+    "pieces_jointes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Noms des pièces que tu joindras toi-même. Sans cette liste, toute pièce jointe annoncée par le brouillon est signalée « à vérifier »."
+    }
   }
 }

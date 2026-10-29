@@ -1,0 +1,43 @@
+{
+  "description": "pièce jointe et date inventées par le modèle : signalées à vérifier",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-brouillons",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "brouillon-mail",
+    "but": "Rédiger un brouillon de mail",
+    "critere_reussite": "brouillons/<date>_reunion-de-lancement.md, ton formel, signature Pierre-Baptiste ; mémoire mise à jour",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 120
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "brouillons/"
+    },
+    "validation": [
+      "envoyer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-11-faits-inventes",
+    "donnees": {
+      "destinataire": "Claire Martin",
+      "objet": "Compte-rendu",
+      "points": [
+        "je remercie Claire pour la réunion"
+      ],
+      "ton": "formel",
+      "signature": "Pierre-Baptiste"
+    }
+  },
+  "critere_reussite": "brouillon écrit ; en tête « À vérifier avant envoi » pour la pièce jointe, 12 et mars ; mêmes éléments dans verification.non_controle",
+  "etats_acceptes": [
+    "termine"
+  ],
+  "reponse_porte_test": "Bonjour Claire,\n\nVous trouverez ci-joint le compte-rendu de la réunion du 12 mars.\n\nCordialement,",
+  "compte_rendu_contient": [
+    "pièce jointe annoncée alors qu'aucune n'est fournie",
+    "nombre(s) absent(s) de la demande : 12",
+    "jour(s) ou mois absent(s) de la demande : mars"
+  ]
+}
