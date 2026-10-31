@@ -71,9 +71,20 @@ def executer(mission):
             return reponse(mission, "echec", motif=f"mission mal formée : opération {i} incomplète ou de type inconnu",
                            non_controle=["mission refusée avant exécution"])
 
-    evenement(mission, "demarrage", f"{len(ops)} opération(s) à faire")
+    # reprise (contrat : champ facultatif « reprise ») : les opérations déjà faites ne sont pas refaites
+    point = (mission.get("reprise") or {}).get("point_de_reprise") or {}
+    debut = point.get("prochaine_operation", 1) if isinstance(point, dict) else 1
+    if not isinstance(debut, int) or not 1 <= debut <= len(ops):
+        return reponse(mission, "echec", motif="point de reprise illisible : prochaine_operation hors des opérations",
+                       non_controle=["mission refusée avant exécution"])
+    if debut > 1:
+        evenement(mission, "demarrage", f"reprise à l'opération {debut} : les {debut - 1} précédente(s) ne sont pas refaites")
+    else:
+        evenement(mission, "demarrage", f"{len(ops)} opération(s) à faire")
     fichiers, actions, faites, manquant = [], [], [], []
     for i, op in enumerate(ops, 1):
+        if i < debut:
+            continue
         etape = f"opération {i}/{len(ops)} : {op['type']} {op['source']}"
         try:
             entre_deux_etapes(mission, etape)
@@ -114,7 +125,7 @@ def executer(mission):
         return reponse(mission, "echec", motif="aucune opération n'a pu être faite", manquant=manquant,
                        controle=controle, non_controle=[])
     etat = "partiel" if manquant else "termine"
-    evenement(mission, "termine", f"{len(faites)} opération(s) faite(s) sur {len(ops)}")
+    evenement(mission, "termine", f"{len(faites)} opération(s) faite(s) sur {len(ops) - debut + 1}")
     return reponse(mission, etat, texte="\n".join(faites), fichiers=fichiers, actions=actions,
                    controle=controle, non_controle=[], manquant=manquant or None,
                    motif=f"{len(manquant)} opération(s) non faite(s)" if manquant else None)

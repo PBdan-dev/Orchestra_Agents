@@ -1,0 +1,53 @@
+{
+  "description": "reprise après un arrêt : seule la 2e opération est faite",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-fichiers",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "operations-fichiers",
+    "but": "Ranger des fichiers",
+    "critere_reussite": "la 1re opération (déjà faite avant l'arrêt) n'est pas refaite ; brouillon.md devient archive.md",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 30
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-10-29T14:00:00+01:00",
+    "id": "test-11-reprise",
+    "donnees": {
+      "operations": [
+        {
+          "type": "renommer",
+          "source": "notes.txt",
+          "destination": "2026-10-29_notes.txt"
+        },
+        {
+          "type": "renommer",
+          "source": "brouillon.md",
+          "destination": "archive.md"
+        }
+      ]
+    },
+    "reprise": {
+      "mission_origine": "test-11-origine",
+      "point_de_reprise": {
+        "prochaine_operation": 2
+      }
+    }
+  },
+  "critere_reussite": "la 1re opération (déjà faite avant l'arrêt) n'est pas refaite ; brouillon.md devient archive.md",
+  "fichiers_projet": {
+    "notes.txt": "Notes de réunion.",
+    "photos/a.jpg": "jpg-a",
+    "photos/b.jpg": "jpg-b",
+    "brouillon.md": "Brouillon à supprimer."
+  },
+  "etats_acceptes": [
+    "termine"
+  ]
+}
