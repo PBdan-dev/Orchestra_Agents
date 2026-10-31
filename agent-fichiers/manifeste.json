@@ -2,7 +2,7 @@
   "format_manifeste": "2.0",
   "id": "agent-fichiers",
   "name": "Fichiers : renommer, déplacer, supprimer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": { "nom": "PB", "contact": "https://github.com/PBdan-dev" },
   "description": "Renomme et déplace des fichiers ou des dossiers du projet sans rien écraser ; supprime définitivement après validation de l'utilisateur.",
   "categorie": "fichiers",
