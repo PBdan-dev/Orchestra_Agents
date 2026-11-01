@@ -1,0 +1,38 @@
+{
+  "description": "aucun resultat",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-recherche-web",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "recherche-approfondie",
+    "but": "Test de l'agent Recherche web",
+    "critere_reussite": "bloque, motif « aucun résultat de recherche exploitable », aucun fichier écrit",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 900
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "rapports/"
+    },
+    "validation": [],
+    "cree_le": "2026-11-01T20:00:00+01:00",
+    "id": "test-11-aucun-resultat",
+    "donnees": {
+      "question": "Question sans aucun résultat possible zqxw",
+      "profondeur": "rapide"
+    }
+  },
+  "critere_reussite": "bloque, motif « aucun résultat de recherche exploitable », aucun fichier écrit",
+  "fichiers_projet": {},
+  "pages_web": {
+    "/recherche": {
+      "type": "application/json",
+      "contenu": "{\"resultats\": []}"
+    }
+  },
+  "reponse_porte_test": "{\"requetes\": [\"autonomie lampe solaire jardin\"], \"choix\": [1, 2, 3, 4], \"manques\": []}",
+  "etats_acceptes": [
+    "bloque"
+  ]
+}

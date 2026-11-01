@@ -1,0 +1,58 @@
+{
+  "description": "extraction factures",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-documents",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "extraire-donnees",
+    "but": "Test de l'agent Documents",
+    "critere_reussite": "extractions/…_factures.csv : 2 lignes ; F-2026-041 / 3 octobre 2026 / Imprimerie Morel / 1 380,00 € et B-7781 / 21 octobre 2026 / Transports Garnier / 768,00 € ; colonne a_verifier vide",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 600
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-11-01T18:00:00+01:00",
+    "id": "test-05-extraction-factures",
+    "donnees": {
+      "fichiers": [
+        "facture-a.txt",
+        "facture-b.docx"
+      ],
+      "champs": [
+        {
+          "nom": "numero",
+          "description": "numéro de la facture"
+        },
+        {
+          "nom": "date",
+          "description": "date de la facture"
+        },
+        {
+          "nom": "fournisseur",
+          "description": "nom de l'entreprise qui émet la facture"
+        },
+        {
+          "nom": "montant_ttc",
+          "description": "montant total toutes taxes comprises"
+        }
+      ],
+      "format": "csv",
+      "titre": "factures"
+    }
+  },
+  "critere_reussite": "extractions/…_factures.csv : 2 lignes ; F-2026-041 / 3 octobre 2026 / Imprimerie Morel / 1 380,00 € et B-7781 / 21 octobre 2026 / Transports Garnier / 768,00 € ; colonne a_verifier vide",
+  "fichiers_projet": {
+    "facture-a.txt": "FACTURE N° F-2026-041\nDate : 3 octobre 2026\nFournisseur : Imprimerie Morel, 12 rue des Lilas, Nantes\nClient : Société Lumen\n\nImpression de 500 catalogues : 1 150,00 € HT\nTVA 20 % : 230,00 €\nTotal TTC : 1 380,00 €\nPaiement à 30 jours.\n",
+    "facture-b.docx": "base64:UEsDBBQAAAAIAMGZYV3MVIwQ4AAAAJwBAAATAAAAW0NvbnRlbnRfVHlwZXNdLnhtbH2Qy07DMBBFf8XyFsUTukAIJekCyhJYlA+w7Eli4Zc8bil/z6QtXaDC0r6PM7rd+hC82GMhl2Ivb1UrBUaTrItTL9+3z829XA/d9isjCbZG6uVca34AIDNj0KRSxsjKmErQlZ9lgqzNh54QVm17BybFirE2demQQ/eEo975KjYH/j5hC3qS4vFkXFi91Dl7Z3RlHfbR/qI0Z4Li5NFDs8t0wwYJVwmL8jfgnHvlHYqzKN50qS86sAs+U7Fgk9kFTqr/a67cmcbRGbzkl7ZckkEiHjh4dVGCdvHnfjjOPXwDUEsDBBQAAAAIAMGZYV02V97cogAAABgBAAALAAAAX3JlbHMvLnJlbHONzzsOwjAMBuCrRN6pCwNCqGkXhNQVlQNEiZtGNA8l4XV7MjBQxMBo+/dnuekedmY3isl4x2Fd1cDISa+M0xzOw3G1g65tTjSLXBJpMiGxsuIShynnsEdMciIrUuUDuTIZfbQilzJqDEJehCbc1PUW46cBS5P1ikPs1RrY8Az0j+3H0Ug6eHm15PKPE1+JIouoKXO4+6hQvdtVYQHbBhcvti9QSwMEFAAAAAgAwZlhXZjbbrVeAQAAaQMAABEAAAB3b3JkL2RvY3VtZW50LnhtbKWTwU7CQBCGX2WzFy/ClsYU0tCSKEEPakysD7C0IzRpdzezQ5GrNx+FxLfom/gkbotgopAIXmaymZnv/zO7Oxy9lAWrAG2uVcR7XY8zUKnOcjWL+FMy6Qz4KB4uw0ynixIUMdevbLiM+JzIhELYdA6ltF1tQLnas8ZSkjviTCw1ZgZ1CtY6XFkI3/MCUcpc8QY51dmqyaYND9imR1oVwJZhJYuI34BsjPS4iIdi19MGiicypQVCU6C2jJumHXLT1xgOrZEpRNwgWMAKeHy/KOs1ahayy06/P+idRhlLApad1esyt80CHc7vMZ2SniIw3/OD07j1mwMCMxIdMUGprNFIll1LVDngXihNizZtuOkPnXhcr20+U5KczT3zYjvze/JOK5KKDg+JneoB7du8Qplbtx8jCyACe5yD4MI79zz28fr+DxOJJlmwJLk6TrsfDP6qLb4uQWyftvj+NvEnUEsBAhQAFAAAAAgAwZlhXcxUjBDgAAAAnAEAABMAAAAAAAAAAAAAAIABAAAAAFtDb250ZW50X1R5cGVzXS54bWxQSwECFAAUAAAACADBmWFdNlfe3KIAAAAYAQAACwAAAAAAAAAAAAAAgAERAQAAX3JlbHMvLnJlbHNQSwECFAAUAAAACADBmWFdmNtutV4BAABpAwAAEQAAAAAAAAAAAAAAgAHcAQAAd29yZC9kb2N1bWVudC54bWxQSwUGAAAAAAMAAwC5AAAAaQMAAAAA"
+  },
+  "etats_acceptes": [
+    "termine"
+  ],
+  "reponse_porte_test": "{\"numero\": {\"valeur\": \"F-2026-041\", \"citation\": \"FACTURE N° F-2026-041\"}, \"date\": {\"valeur\": \"3 octobre 2026\", \"citation\": \"Date : 3 octobre 2026\"}, \"fournisseur\": {\"valeur\": \"Imprimerie Morel\", \"citation\": \"Fournisseur : Imprimerie Morel\"}, \"montant_ttc\": {\"valeur\": \"1 380,00 €\", \"citation\": \"Total TTC : 1 380,00 €\"}}"
+}

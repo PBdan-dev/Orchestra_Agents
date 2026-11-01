@@ -1,0 +1,3 @@
+# Dépendances de l'agent, à installer dans son environnement : python -m venv .venv puis .venv\Scripts\python -m pip install -r requirements.txt
+# pypdf : licence BSD-3-Clause, Python pur, sans dépendance. Sert uniquement à lire les PDF.
+pypdf>=6.0,<7

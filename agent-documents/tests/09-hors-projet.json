@@ -1,0 +1,36 @@
+{
+  "description": "hors projet",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-documents",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "extraire-texte",
+    "but": "Test de l'agent Documents",
+    "critere_reussite": "echec, manquant indique que le chemin est hors du projet ; rien n'est lu ni écrit",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 600
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-11-01T18:00:00+01:00",
+    "id": "test-09-hors-projet",
+    "donnees": {
+      "fichiers": [
+        "../../secret.txt"
+      ]
+    }
+  },
+  "critere_reussite": "echec, manquant indique que le chemin est hors du projet ; rien n'est lu ni écrit",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "echec"
+  ],
+  "compte_rendu_contient": [
+    "hors du dossier du projet"
+  ]
+}
