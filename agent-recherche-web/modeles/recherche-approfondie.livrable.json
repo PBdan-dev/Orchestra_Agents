@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "description": "Un fichier rapports/AAAA-MM-JJ_<question>.md : titre « # Recherche : … », ligne profondeur/sources/moteur, encadré « À vérifier » si le code a relevé une source inconnue, un paragraphe sans source ou un nombre absent des pages, le rapport (En bref puis sous-parties ###, chaque information suivie de [S1]…), puis « ## Sources » (titre, adresse, date de publication si connue) et « ## Non lu » (pages refusées ou injoignables).",
+  "required": [
+    "fichier"
+  ],
+  "properties": {
+    "fichier": {
+      "type": "string",
+      "pattern": "^rapports/[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-z0-9-]+(-[0-9]+)?\\.md$"
+    }
+  }
+}

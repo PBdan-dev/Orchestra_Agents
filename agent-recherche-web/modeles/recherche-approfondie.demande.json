@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "required": [
+    "question"
+  ],
+  "properties": {
+    "question": {
+      "type": "string",
+      "description": "La question à laquelle le rapport doit répondre, en une ou deux phrases."
+    },
+    "profondeur": {
+      "enum": [
+        "rapide",
+        "normale",
+        "approfondie"
+      ],
+      "description": "rapide : 2 recherches, 4 pages ; normale (par défaut) : 3 recherches, 6 pages ; approfondie : 4 recherches, 8 pages, puis un tour pour combler les manques (4 pages de plus)."
+    },
+    "precision": {
+      "type": "string",
+      "description": "Facultatif : ce sur quoi insister (période, pays, angle)."
+    },
+    "adresses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Facultatif : pages à lire en priorité, données par l'utilisateur (https)."
+    },
+    "sites_exclus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Facultatif : domaines à ne pas lire (ex. « exemple.com »)."
+    },
+    "titre": {
+      "type": "string",
+      "description": "Facultatif : sert au nom du fichier."
+    }
+  }
+}
