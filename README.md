@@ -1,6 +1,6 @@
 # Orchestra Agents
 
-Agents de test pour [Orchestra](https://github.com/PBdan-dev/Orchestra), construits avec le kit de certification de l'[Agent Market](https://github.com/PBdan-dev/Agent_Market/tree/main/agent-certification). Ils servent de banc d'essai pendant le développement d'Orchestra (lots T1, T2, T4) ; ce dépôt est temporaire.
+Agents de base et agents de test pour [Orchestra](https://github.com/PBdan-dev/Orchestra), construits avec le kit de certification de l'[Agent Market](https://github.com/PBdan-dev/Agent_Market/tree/main/agent-certification). Ils servent de banc d'essai pendant le développement d'Orchestra (lots T1, T2, T4) ; ce dépôt est temporaire.
 
 | Agent | Ce qu'il fait | Ce qu'il teste dans Orchestra |
 |---|---|---|
@@ -8,7 +8,21 @@ Agents de test pour [Orchestra](https://github.com/PBdan-dev/Orchestra), constru
 | `agent-fichiers` | Renomme, déplace (sans écraser), supprime définitivement après validation | Actions réversibles, `action_sensitive_` et validation (4 portées), plusieurs étapes, arrêt, pause, état `partiel` |
 | `agent-brouillons` | Brouillon de mail en `.md`, en réponse éventuelle à un mail reçu ; n'envoie rien | Modèle par la porte (minimum `qwen3.5:9b`, recommandé `qwen3.6:27b`), contenu piégé, mémoire propre (signature, ton), mémoire empoisonnée |
 
-Non couverts : secrets (`secret_`), réseau, agents hébergés.
+## Agents de base
+
+| Agent | Ce qu'il fait | Dépendances |
+|---|---|---|
+| `agent-documents` | Extrait le texte, résume, extrait des données de documents PDF, Word, Excel, CSV, texte ; renomme, déplace, supprime après validation (reprend `agent-fichiers`) | `pypdf` (BSD-3), voir `requirements.txt` |
+
+Un agent qui a un `requirements.txt` s'installe dans son propre environnement, dans son dossier d'installation (`agents/installes/<id>/`) :
+```
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt
+```
+Orchestra lance `.venv\Scripts\python.exe` quand ce dossier existe. Pour rejouer les tests, lancer `rejouer_tests.py` avec ce même Python.
+Les tests d'`agent-documents` sont fabriqués par `outils/tests_agent_documents.py` (documents PDF, Word et Excel en `base64:`, voir `outils/documents_de_test.py`).
+
+Non couverts par les agents de test : secrets (`secret_`), réseau, agents hébergés.
 
 ## Structure
 

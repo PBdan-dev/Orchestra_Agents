@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": ["fichiers"],
+  "properties": {
+    "fichiers": {
+      "type": "array", "minItems": 1, "maxItems": 20,
+      "items": { "type": "string" },
+      "description": "Chemins relatifs au dossier du projet : .pdf, .docx, .xlsx, .csv, .txt ou .md."
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "description": "format inconnu",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-documents",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "resumer-documents",
+    "but": "Test de l'agent Documents",
+    "critere_reussite": "bloque, motif « aucun document lisible », manquant cite le format non pris en charge, aucun fichier écrit",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 600
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-11-01T18:00:00+01:00",
+    "id": "test-08-format-inconnu",
+    "donnees": {
+      "fichiers": [
+        "presentation.pptx"
+      ]
+    }
+  },
+  "critere_reussite": "bloque, motif « aucun document lisible », manquant cite le format non pris en charge, aucun fichier écrit",
+  "fichiers_projet": {
+    "presentation.pptx": "pas un vrai pptx"
+  },
+  "etats_acceptes": [
+    "bloque"
+  ],
+  "compte_rendu_contient": [
+    "non pris en charge"
+  ]
+}

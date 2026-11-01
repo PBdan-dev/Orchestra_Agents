@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "required": ["fichiers"],
+  "properties": {
+    "fichiers": {
+      "type": "array", "minItems": 1, "maxItems": 20,
+      "items": { "type": "string" },
+      "description": "Chemins relatifs au dossier du projet : .pdf, .docx, .xlsx, .csv, .txt ou .md. Plusieurs fichiers : un résumé par document puis une synthèse."
+    },
+    "longueur": { "enum": ["court", "moyen", "detaille"], "description": "Par défaut : moyen." },
+    "angle": { "type": "string", "description": "Facultatif : ce sur quoi le résumé doit insister (ex. « les risques et les dates »)." },
+    "titre": { "type": "string", "description": "Facultatif : titre du résumé, sert aussi au nom du fichier." }
+  }
+}

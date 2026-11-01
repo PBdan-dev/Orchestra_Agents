@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "description": "Pas de fichier livré : le livrable est l'état du dossier du projet. resultat.texte liste les opérations faites ; resultat.fichiers liste chaque chemin touché (ancien et nouveau) ; manquant liste les opérations non faites.",
+  "required": ["texte", "fichiers"],
+  "properties": {
+    "texte": { "type": "string" },
+    "fichiers": { "type": "array", "items": { "type": "string" } }
+  }
+}

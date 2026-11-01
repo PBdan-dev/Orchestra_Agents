@@ -1,0 +1,50 @@
+{
+  "description": "extraction valeur absente",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-documents",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "extraire-donnees",
+    "but": "Test de l'agent Documents",
+    "critere_reussite": "montant_ttc = 1 380,00 € vérifié ; iban vide (valeur null), jamais inventé",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 600
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-11-01T18:00:00+01:00",
+    "id": "test-06-extraction-valeur-absente",
+    "donnees": {
+      "fichiers": [
+        "facture-a.txt"
+      ],
+      "format": "json",
+      "champs": [
+        {
+          "nom": "montant_ttc",
+          "description": "montant total TTC"
+        },
+        {
+          "nom": "iban",
+          "description": "IBAN du fournisseur"
+        }
+      ]
+    }
+  },
+  "critere_reussite": "montant_ttc = 1 380,00 € vérifié ; iban vide (valeur null), jamais inventé",
+  "fichiers_projet": {
+    "facture-a.txt": "FACTURE N° F-2026-041\nDate : 3 octobre 2026\nFournisseur : Imprimerie Morel, 12 rue des Lilas, Nantes\nClient : Société Lumen\n\nImpression de 500 catalogues : 1 150,00 € HT\nTVA 20 % : 230,00 €\nTotal TTC : 1 380,00 €\nPaiement à 30 jours.\n"
+  },
+  "etats_acceptes": [
+    "termine"
+  ],
+  "reponse_porte_test": "{\"montant_ttc\": {\"valeur\": \"1 380,00 €\", \"citation\": \"Total TTC : 1 380,00 €\"}, \"iban\": {\"valeur\": \"FR76 1234 5678\", \"citation\": \"\"}}",
+  "compte_rendu_contient": [
+    "« FR76 1234 5678 » introuvable tel quel"
+  ]
+}

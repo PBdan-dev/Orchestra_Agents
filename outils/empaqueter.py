@@ -7,7 +7,7 @@ import hashlib, json, shutil, sys, zipfile
 from pathlib import Path
 
 RACINE = Path(__file__).resolve().parent.parent
-EXCLUS = {"__pycache__", "memoire", "resultats"}
+EXCLUS = {"__pycache__", "memoire", "resultats", ".venv"}
 
 
 def empaqueter(dossier):

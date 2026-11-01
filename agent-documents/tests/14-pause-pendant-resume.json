@@ -1,0 +1,50 @@
+{
+  "description": "pause pendant resume",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-documents",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "resumer-documents",
+    "but": "Test de l'agent Documents",
+    "critere_reussite": "événement en_pause, puis reprise et résumé écrit (termine)",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 600
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "supprimer"
+    ],
+    "cree_le": "2026-11-01T18:00:00+01:00",
+    "id": "test-14-pause-pendant-resume",
+    "donnees": {
+      "fichiers": [
+        "rapport.pdf"
+      ],
+      "longueur": "court"
+    }
+  },
+  "critere_reussite": "événement en_pause, puis reprise et résumé écrit (termine)",
+  "fichiers_projet": {
+    "rapport.pdf": "base64:JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFs1IDAgUiA3IDAgUiA5IDAgUl0gL0NvdW50IDMgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nID4+CmVuZG9iago0IDAgb2JqCjw8IC9MZW5ndGggMjY4ID4+CnN0cmVhbQpCVCAvRjEgMTEgVGYgMTQgVEwgNjAgNzgwIFRkIChSYXBwb3J0IGFubnVlbCAyMDI1IC0gU29jaVwzNTF0XDM1MSBMdW1lbikgVGogVCogKCkgVGogVCogKExhIHNvY2lcMzUxdFwzNTEgTHVtZW4gZmFicmlxdWUgZGVzIGxhbXBlcyBzb2xhaXJlcyBwb3VyIGwnZXh0XDM1MXJpZXVyLikgVGogVCogKENlIHJhcHBvcnQgcHJcMzUxc2VudGUgbGVzIHJcMzUxc3VsdGF0cyBkZSBsJ2V4ZXJjaWNlIDIwMjUgZXQgbGVzIHJpc3F1ZXMgaWRlbnRpZmlcMzUxcy4pIFRqIFQqIEVUCmVuZHN0cmVhbQplbmRvYmoKNSAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW50IDIgMCBSIC9NZWRpYUJveCBbMCAwIDU5NSA4NDJdIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDMgMCBSID4+ID4+IC9Db250ZW50cyA0IDAgUiA+PgplbmRvYmoKNiAwIG9iago8PCAvTGVuZ3RoIDI4MiA+PgpzdHJlYW0KQlQgL0YxIDExIFRmIDE0IFRMIDYwIDc4MCBUZCAoUlwzNTFzdWx0YXRzIGZpbmFuY2llcnMpIFRqIFQqICgpIFRqIFQqIChMZSBjaGlmZnJlIGQnYWZmYWlyZXMgYXR0ZWludCAxIDI1MCAwMDAgZXVyb3MgZW4gMjAyNSwpIFRqIFQqIChlbiBoYXVzc2UgZGUgMTIgJSBwYXIgcmFwcG9ydCBcMzQwIDIwMjQuKSBUaiBUKiAoTGEgbWFyZ2UgbmV0dGUgcydcMzUxdGFibGl0IFwzNDAgOCAlLikgVGogVCogKEwnZWZmZWN0aWYgcGFzc2UgZGUgMTggXDM0MCAyMyBzYWxhcmlcMzUxcy4pIFRqIFQqIEVUCmVuZHN0cmVhbQplbmRvYmoKNyAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW50IDIgMCBSIC9NZWRpYUJveCBbMCAwIDU5NSA4NDJdIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDMgMCBSID4+ID4+IC9Db250ZW50cyA2IDAgUiA+PgplbmRvYmoKOCAwIG9iago8PCAvTGVuZ3RoIDMyNyA+PgpzdHJlYW0KQlQgL0YxIDExIFRmIDE0IFRMIDYwIDc4MCBUZCAoUmlzcXVlcyBldCBcMzUxY2hcMzUxYW5jZXMpIFRqIFQqICgpIFRqIFQqIChMZSBwcmluY2lwYWwgcmlzcXVlIGVzdCBsYSBkXDM1MXBlbmRhbmNlIFwzNDAgdW4gZm91cm5pc3NldXIgdW5pcXVlIGRlIGJhdHRlcmllcy4pIFRqIFQqIChMZSBwclwzNTJ0IGJhbmNhaXJlIGRlIDMwMCAwMDAgZXVyb3MgYXJyaXZlIFwzNDAgXDM1MWNoXDM1MWFuY2UgbGUgMzAganVpbiAyMDI2LikgVGogVCogKFVuIHNlY29uZCBmb3Vybmlzc2V1ciBkb2l0IFwzNTJ0cmUgcXVhbGlmaVwzNTEgYXZhbnQgY2V0dGUgZGF0ZS4pIFRqIFQqIEVUCmVuZHN0cmVhbQplbmRvYmoKOSAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW50IDIgMCBSIC9NZWRpYUJveCBbMCAwIDU5NSA4NDJdIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDMgMCBSID4+ID4+IC9Db250ZW50cyA4IDAgUiA+PgplbmRvYmoKeHJlZgowIDEwCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAwOSAwMDAwMCBuIAowMDAwMDAwMDU4IDAwMDAwIG4gCjAwMDAwMDAxMjcgMDAwMDAgbiAKMDAwMDAwMDIyNCAwMDAwMCBuIAowMDAwMDAwNTQzIDAwMDAwIG4gCjAwMDAwMDA2NjkgMDAwMDAgbiAKMDAwMDAwMTAwMiAwMDAwMCBuIAowMDAwMDAxMTI4IDAwMDAwIG4gCjAwMDAwMDE1MDYgMDAwMDAgbiAKdHJhaWxlcgo8PCAvU2l6ZSAxMCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKMTYzMgolJUVPRgo="
+  },
+  "etats_acceptes": [
+    "termine"
+  ],
+  "delai_porte_s": 0.5,
+  "evenements_attendus": [
+    "en_pause"
+  ],
+  "messages": [
+    {
+      "apres_evenement": "etape",
+      "type": "pause"
+    },
+    {
+      "apres_evenement": "en_pause",
+      "type": "reprendre"
+    }
+  ]
+}

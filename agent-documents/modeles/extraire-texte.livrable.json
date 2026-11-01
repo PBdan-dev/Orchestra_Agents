@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "description": "Un fichier textes/<nom du document>.md par document lu : titre, ligne « Source », puis une section ## par page (PDF), section (Word) ou feuille (Excel).",
+  "required": ["fichiers"],
+  "properties": {
+    "fichiers": { "type": "array", "items": { "type": "string", "pattern": "^textes/[a-z0-9-]+(-[0-9]+)?\\.md$" } }
+  }
+}

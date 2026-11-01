@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": ["fichiers", "champs"],
+  "properties": {
+    "fichiers": {
+      "type": "array", "minItems": 1, "maxItems": 20,
+      "items": { "type": "string" },
+      "description": "Chemins relatifs au dossier du projet : .pdf, .docx, .xlsx, .csv, .txt ou .md. Une ligne par document dans le livrable."
+    },
+    "champs": {
+      "type": "array", "minItems": 1, "maxItems": 30,
+      "items": {
+        "type": "object", "required": ["nom"],
+        "properties": {
+          "nom": { "type": "string", "description": "Nom de colonne court (ex. « montant_ttc »)." },
+          "description": { "type": "string", "description": "Ce qu'il faut chercher (ex. « montant total toutes taxes comprises »)." }
+        }
+      }
+    },
+    "format": { "enum": ["csv", "json"], "description": "Par défaut : csv (séparateur ;, lisible par Excel)." },
+    "titre": { "type": "string", "description": "Facultatif : sert au nom du fichier." }
+  }
+}
