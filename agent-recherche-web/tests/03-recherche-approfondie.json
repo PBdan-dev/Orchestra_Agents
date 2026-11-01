@@ -1,0 +1,46 @@
+{
+  "description": "recherche approfondie",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-recherche-web",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "recherche-approfondie",
+    "but": "Test de l'agent Recherche web",
+    "critere_reussite": "rapport sourcé ; un tour complémentaire peut relancer une recherche sans relire les mêmes pages",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 900
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "rapports/"
+    },
+    "validation": [],
+    "cree_le": "2026-11-01T20:00:00+01:00",
+    "id": "test-03-recherche-approfondie",
+    "donnees": {
+      "question": "Combien de temps une lampe solaire de jardin éclaire-t-elle, et combien de temps dure sa batterie ?",
+      "profondeur": "approfondie",
+      "precision": "usage domestique"
+    }
+  },
+  "critere_reussite": "rapport sourcé ; un tour complémentaire peut relancer une recherche sans relire les mêmes pages",
+  "fichiers_projet": {},
+  "pages_web": {
+    "/recherche": {
+      "type": "application/json",
+      "contenu": "{\"resultats\": [{\"titre\": \"Éclairage solaire extérieur - guide officiel\", \"url\": \"WEB_DE_TEST/officiel.html\", \"extrait\": \"Autonomie, batteries, entretien.\"}, {\"titre\": \"Comparatif 2026 des lampes solaires\", \"url\": \"WEB_DE_TEST/presse.html\", \"extrait\": \"Notre essai de 12 modèles.\"}, {\"titre\": \"Mon avis sur les lampes solaires\", \"url\": \"WEB_DE_TEST/blog.html\", \"extrait\": \"Retour d'expérience.\"}, {\"titre\": \"Étude sur l'éclairage solaire public (PDF)\", \"url\": \"WEB_DE_TEST/etude.pdf\", \"extrait\": \"Durée de vie des batteries.\"}]}"
+    },
+    "/officiel.html": "<!doctype html><html lang=\"fr\"><head><meta charset=\"utf-8\"><title>Éclairage solaire extérieur : ce qu'il faut savoir</title><meta property=\"article:published_time\" content=\"2026-03-14\"></head><body><nav><a href=\"/\">Accueil</a> <a href=\"/contact\">Contact</a></nav><article><h1>Éclairage solaire extérieur : ce qu'il faut savoir</h1><p>Une lampe solaire de jardin fonctionne de 6 à 10 heures après une journée bien ensoleillée.</p><p>En hiver, l'autonomie tombe souvent à 3 ou 4 heures, car le panneau reçoit moins de lumière.</p><p>La batterie lithium-fer-phosphate (LiFePO4) supporte environ 2000 cycles de charge, contre 500 pour une batterie NiMH.</p><p>Le panneau doit être orienté plein sud et nettoyé deux fois par an.</p></article><footer>Mentions légales - cookies</footer><script>var suivi = 1;</script></body></html>",
+    "/presse.html": "<!doctype html><html lang=\"fr\"><head><meta charset=\"utf-8\"><title>Lampes solaires : le comparatif 2026</title><meta property=\"article:published_time\" content=\"2026-06-02\"></head><body><nav><a href=\"/\">Accueil</a> <a href=\"/contact\">Contact</a></nav><article><h1>Lampes solaires : le comparatif 2026</h1><p>Notre essai de 12 modèles montre une autonomie moyenne de 7 heures en été.</p><p>Les modèles à batterie remplaçable durent plus longtemps : comptez 5 à 8 ans contre 2 à 3 ans sinon.</p><p>Le prix moyen constaté est de 35 euros, de 15 euros pour l'entrée de gamme à 90 euros pour les projecteurs.</p></article><footer>Mentions légales - cookies</footer><script>var suivi = 1;</script></body></html>",
+    "/blog.html": "<!doctype html><html lang=\"fr\"><head><meta charset=\"utf-8\"><title>Mon avis sur les lampes solaires</title></head><body><nav><a href=\"/\">Accueil</a> <a href=\"/contact\">Contact</a></nav><article><h1>Mon avis sur les lampes solaires</h1><p>J'ai installé six lampes dans mon jardin l'an dernier.</p><p>Elles tiennent environ 5 heures en octobre, ce qui me suffit largement pour l'allée.</p><p>Le seul défaut : deux lampes ont cessé de charger après une saison.</p></article><footer>Mentions légales - cookies</footer><script>var suivi = 1;</script></body></html>",
+    "/etude.pdf": {
+      "contenu": "base64:JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFs1IDAgUiA3IDAgUl0gL0NvdW50IDIgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nID4+CmVuZG9iago0IDAgb2JqCjw8IC9MZW5ndGggMjc2ID4+CnN0cmVhbQpCVCAvRjEgMTEgVGYgMTQgVEwgNjAgNzgwIFRkIChcMzExdHVkZSBzdXIgbCdcMzUxY2xhaXJhZ2Ugc29sYWlyZSBwdWJsaWMgLSAyMDI1KSBUaiBUKiAoKSBUaiBUKiAoTGVzIDQwIGNvbW11bmVzIFwzNTF0dWRpXDM1MWVzIG9udCBpbnN0YWxsXDM1MSAxIDgwMCBsYW1wYWRhaXJlcyBzb2xhaXJlcy4pIFRqIFQqIChMYSBjb25zb21tYXRpb24gXDM1MWxlY3RyaXF1ZSBkZSBsJ1wzNTFjbGFpcmFnZSBwdWJsaWMgYSBiYWlzc1wzNTEgZGUgMzUgJSBlbiBtb3llbm5lLikgVGogVCogRVQKZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqCjw8IC9UeXBlIC9QYWdlIC9QYXJlbnQgMiAwIFIgL01lZGlhQm94IFswIDAgNTk1IDg0Ml0gL1Jlc291cmNlcyA8PCAvRm9udCA8PCAvRjEgMyAwIFIgPj4gPj4gL0NvbnRlbnRzIDQgMCBSID4+CmVuZG9iago2IDAgb2JqCjw8IC9MZW5ndGggMTIxID4+CnN0cmVhbQpCVCAvRjEgMTEgVGYgMTQgVEwgNjAgNzgwIFRkIChEdXJcMzUxZSBkZSB2aWUgb2JzZXJ2XDM1MWUgOiAxMCBhbnMgcG91ciBsZXMgcGFubmVhdXgsIDYgYW5zIHBvdXIgbGVzIGJhdHRlcmllcy4pIFRqIFQqIEVUCmVuZHN0cmVhbQplbmRvYmoKNyAwIG9iago8PCAvVHlwZSAvUGFnZSAvUGFyZW50IDIgMCBSIC9NZWRpYUJveCBbMCAwIDU5NSA4NDJdIC9SZXNvdXJjZXMgPDwgL0ZvbnQgPDwgL0YxIDMgMCBSID4+ID4+IC9Db250ZW50cyA2IDAgUiA+PgplbmRvYmoKeHJlZgowIDgKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDEyMSAwMDAwMCBuIAowMDAwMDAwMjE4IDAwMDAwIG4gCjAwMDAwMDA1NDUgMDAwMDAgbiAKMDAwMDAwMDY3MSAwMDAwMCBuIAowMDAwMDAwODQzIDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgOCAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKOTY5CiUlRU9GCg==",
+      "type": "application/pdf"
+    }
+  },
+  "reponse_porte_test": "{\"requetes\": [\"autonomie lampe solaire jardin\"], \"choix\": [1, 2, 3, 4], \"manques\": []}",
+  "etats_acceptes": [
+    "termine"
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "description": "mission mal formee",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-recherche-web",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "recherche-approfondie",
+    "but": "Test de l'agent Recherche web",
+    "critere_reussite": "echec avec un motif qui nomme donnees.question",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 900
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "rapports/"
+    },
+    "validation": [],
+    "cree_le": "2026-11-01T20:00:00+01:00",
+    "id": "test-04-mission-mal-formee",
+    "donnees": {
+      "profondeur": "rapide"
+    }
+  },
+  "critere_reussite": "echec avec un motif qui nomme donnees.question",
+  "fichiers_projet": {},
+  "pages_web": {
+    "/recherche": {
+      "type": "application/json",
+      "contenu": "{\"resultats\": [{\"titre\": \"Éclairage solaire extérieur - guide officiel\", \"url\": \"WEB_DE_TEST/officiel.html\", \"extrait\": \"Autonomie, batteries, entretien.\"}, {\"titre\": \"Comparatif 2026 des lampes solaires\", \"url\": \"WEB_DE_TEST/presse.html\", \"extrait\": \"Notre essai de 12 modèles.\"}, {\"titre\": \"Mon avis sur les lampes solaires\", \"url\": \"WEB_DE_TEST/blog.html\", \"extrait\": \"Retour d'expérience.\"}, {\"titre\": \"Étude sur l'éclairage solaire public (PDF)\", \"url\": \"WEB_DE_TEST/etude.pdf\", \"extrait\": \"Durée de vie des batteries.\"}]}"
+    }
+  },
+  "reponse_porte_test": "{\"requetes\": [\"autonomie lampe solaire jardin\"], \"choix\": [1, 2, 3, 4], \"manques\": []}",
+  "mal_formee": true,
+  "etats_acceptes": [
+    "echec"
+  ]
+}

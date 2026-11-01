@@ -1,0 +1,42 @@
+{
+  "description": "page introuvable",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-recherche-web",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "recherche-approfondie",
+    "but": "Test de l'agent Recherche web",
+    "critere_reussite": "la page en erreur 404 est listée dans « Non lu » ; rapport écrit avec les autres",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 900
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "rapports/"
+    },
+    "validation": [],
+    "cree_le": "2026-11-01T20:00:00+01:00",
+    "id": "test-10-page-introuvable",
+    "donnees": {
+      "question": "Combien de temps une lampe solaire de jardin éclaire-t-elle, et combien de temps dure sa batterie ?",
+      "profondeur": "rapide"
+    }
+  },
+  "critere_reussite": "la page en erreur 404 est listée dans « Non lu » ; rapport écrit avec les autres",
+  "fichiers_projet": {},
+  "pages_web": {
+    "/recherche": {
+      "type": "application/json",
+      "contenu": "{\"resultats\": [{\"titre\": \"Page disparue\", \"url\": \"WEB_DE_TEST/disparue.html\", \"extrait\": \"…\"}, {\"titre\": \"Guide officiel\", \"url\": \"WEB_DE_TEST/officiel.html\", \"extrait\": \"Autonomie.\"}]}"
+    },
+    "/officiel.html": "<!doctype html><html lang=\"fr\"><head><meta charset=\"utf-8\"><title>Éclairage solaire extérieur : ce qu'il faut savoir</title><meta property=\"article:published_time\" content=\"2026-03-14\"></head><body><nav><a href=\"/\">Accueil</a> <a href=\"/contact\">Contact</a></nav><article><h1>Éclairage solaire extérieur : ce qu'il faut savoir</h1><p>Une lampe solaire de jardin fonctionne de 6 à 10 heures après une journée bien ensoleillée.</p><p>En hiver, l'autonomie tombe souvent à 3 ou 4 heures, car le panneau reçoit moins de lumière.</p><p>La batterie lithium-fer-phosphate (LiFePO4) supporte environ 2000 cycles de charge, contre 500 pour une batterie NiMH.</p><p>Le panneau doit être orienté plein sud et nettoyé deux fois par an.</p></article><footer>Mentions légales - cookies</footer><script>var suivi = 1;</script></body></html>"
+  },
+  "reponse_porte_test": "{\"requetes\": [\"autonomie lampe solaire jardin\"], \"choix\": [1, 2, 3, 4], \"manques\": []}",
+  "etats_acceptes": [
+    "termine"
+  ],
+  "compte_rendu_contient": [
+    "404"
+  ]
+}
