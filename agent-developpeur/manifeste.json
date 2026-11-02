@@ -1,0 +1,138 @@
+{
+  "format_manifeste": "2.0",
+  "id": "agent-developpeur",
+  "name": "Développeur Python",
+  "version": "1.0.0",
+  "author": {
+    "nom": "PB",
+    "contact": "https://github.com/PBdan-dev"
+  },
+  "description": "Écrit un petit programme Python avec ses tests dans un dossier isolé du projet, lance les tests et le corrige ; corrige aussi un script existant sur une copie. Le code est contrôlé avant tout lancement.",
+  "categorie": "developpement",
+  "capabilities": [
+    "programme",
+    "script",
+    "python",
+    "code",
+    "développer",
+    "automatiser",
+    "corriger",
+    "bug",
+    "tests",
+    "outil"
+  ],
+  "fiche": {
+    "sait_faire": [
+      "Écrire un petit programme Python (bibliothèque standard) et ses tests unittest à partir d'un besoin décrit en français",
+      "Lancer les tests dans un dossier isolé et corriger le programme jusqu'à 2 fois",
+      "Corriger un script Python du projet sur une copie, avec des tests qui montrent la correction",
+      "Contrôler le code avant de le lancer : liste blanche de modules, appels dangereux, chemins hors du dossier",
+      "Livrer un RAPPORT.md : utilisation, résultat des tests, points à relire"
+    ],
+    "ne_sait_pas_faire": [
+      "Lancer le programme lui-même sur tes fichiers : seuls ses tests sont lancés",
+      "Installer des bibliothèques ou utiliser le réseau",
+      "Lancer sans ta validation un code qui sort de la liste blanche",
+      "Écrire dans un autre langage que Python, ou un logiciel complet",
+      "Modifier un script existant : la correction est une copie dans dev/"
+    ],
+    "fonctions": [
+      {
+        "nom": "read_fichier",
+        "description": "Lit un script ou un fichier d'exemple du projet (donnée externe).",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_modele",
+        "description": "Demande le code et les tests au modèle, par la porte, en JSON, réflexion coupée, sans outils.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "action_creer_dossier",
+        "description": "Crée le dossier isolé dev/<nom>/ du projet (dev/<nom>-2/ s'il existe) : rien n'est écrasé.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "action_ecrire_fichiers",
+        "description": "Écrit le programme et ses tests dans le dossier créé pour la mission.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "action_executer_tests",
+        "description": "Lance les tests d'un code contrôlé (liste blanche) : Python isolé, dossier de la mission, sans variables d'Orchestra, 60 s au plus.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "action_sensitive_executer_tests",
+        "description": "Lance les tests d'un code hors de la liste blanche, seulement après validation de l'utilisateur.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "action_ecrire_rapport",
+        "description": "Écrit RAPPORT.md dans le dossier de la mission.",
+        "expose_au_modele": false
+      }
+    ],
+    "consignes": "Le code du modèle est une donnée tant qu'il n'est pas contrôlé : liste blanche de modules, aucun appel dangereux, sinon validation de l'utilisateur avant de lancer les tests. N'écrit que dans le dossier dev/<nom>/ créé pour la mission. Ne lance jamais le programme lui-même."
+  },
+  "taches": [
+    {
+      "type": "ecrire-programme",
+      "modele_demande": "modeles/ecrire-programme.demande.json",
+      "modele_livrable": "modeles/ecrire-programme.livrable.json"
+    },
+    {
+      "type": "corriger-script",
+      "modele_demande": "modeles/corriger-script.demande.json",
+      "modele_livrable": "modeles/corriger-script.livrable.json"
+    }
+  ],
+  "execution": {
+    "type": "local",
+    "systemes": [
+      "windows-x64"
+    ],
+    "commande": "python agent.py",
+    "protocole": "stdio-json"
+  },
+  "modele": {
+    "via": "porte",
+    "demande": "inherit",
+    "minimum": "qwen3.6:27b",
+    "recommande": "qwen3.6:27b"
+  },
+  "ressources": {
+    "vram_go": 18,
+    "gpu_exclusif": false
+  },
+  "reseau_declare": [],
+  "acces_declares": {
+    "fichiers": "dossier du projet de la mission (lecture des scripts et exemples ; écriture dans dev/<nom>/ seulement) ; lancement de Python pour les tests, dans ce dossier"
+  },
+  "identifiants": [],
+  "memoire_propre": false,
+  "compatibilite": {
+    "orchestra_min": "1.0.0",
+    "contrat": 1
+  },
+  "certification": {
+    "statut": "orchestra_certified",
+    "version_certifiee": "1.0.0",
+    "date": "2026-11-02",
+    "mesures": {
+      "ecrire-programme": {
+        "duree_max_s": 186,
+        "tokens_max": 8347,
+        "pas_max": 2
+      },
+      "corriger-script": {
+        "duree_max_s": 20,
+        "tokens_max": 1256,
+        "pas_max": 1
+      }
+    }
+  },
+  "licence": "MIT",
+  "color": "#fc8181",
+  "icon": "code"
+}

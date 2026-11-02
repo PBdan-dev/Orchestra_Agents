@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "description": "Un dossier dev/<nom>-corrige/ : le script corrigé, des tests qui montrent la correction, RAPPORT.md.",
+  "required": [
+    "fichiers"
+  ],
+  "properties": {
+    "fichiers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^dev/[a-z0-9-]+/[A-Za-z0-9_\\-]+\\.(py|md|txt|json|csv)$"
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "fichier",
+    "question"
+  ],
+  "properties": {
+    "fichier": {
+      "type": "string",
+      "description": "Tableau du projet : .csv ou .xlsx. Il n'est jamais modifié."
+    },
+    "feuille": {
+      "type": "string",
+      "description": "Facultatif : nom de la feuille Excel (par défaut la première)."
+    },
+    "question": {
+      "type": "string",
+      "description": "Ce qu'il faut calculer ou montrer, en langage courant (ex. « chiffre d'affaires par mois et par produit »)."
+    },
+    "graphique": {
+      "enum": [
+        "auto",
+        "aucun",
+        "barres",
+        "lignes",
+        "camembert"
+      ],
+      "description": "Par défaut : auto (le plan choisit)."
+    },
+    "titre": {
+      "type": "string",
+      "description": "Facultatif : sert au nom des fichiers."
+    }
+  }
+}

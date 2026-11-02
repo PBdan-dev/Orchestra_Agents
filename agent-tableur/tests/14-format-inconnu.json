@@ -1,0 +1,35 @@
+{
+  "description": "format inconnu",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-tableur",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "analyser-tableau",
+    "but": "Test de l'agent Tableur",
+    "critere_reussite": "bloque, format non pris en charge, aucun fichier écrit",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "tableau"
+    },
+    "validation": [],
+    "cree_le": "2026-11-01T22:00:00+01:00",
+    "id": "test-14-format-inconnu",
+    "donnees": {
+      "fichier": "ventes.ods",
+      "question": "Total des ventes"
+    }
+  },
+  "critere_reussite": "bloque, format non pris en charge, aucun fichier écrit",
+  "fichiers_projet": {
+    "ventes.ods": "pas un tableur"
+  },
+  "etats_acceptes": [
+    "bloque"
+  ],
+  "compte_rendu_contient": [
+    "non pris en charge"
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "description": "top clients csv",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-tableur",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "analyser-tableau",
+    "but": "Test de l'agent Tableur",
+    "critere_reussite": "Durand 5244, Garnier 4415, Morel 3046 dans cet ordre (virgule décimale du CSV bien lue)",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "tableau"
+    },
+    "validation": [],
+    "cree_le": "2026-11-01T22:00:00+01:00",
+    "id": "test-03-top-clients-csv",
+    "donnees": {
+      "fichier": "ventes.csv",
+      "question": "Quels sont les 3 clients qui rapportent le plus de chiffre d'affaires ?"
+    }
+  },
+  "critere_reussite": "Durand 5244, Garnier 4415, Morel 3046 dans cet ordre (virgule décimale du CSV bien lue)",
+  "fichiers_projet": {
+    "ventes.csv": "Date;Client;Produit;Région;Quantité;Prix unitaire\n05/01/2026;Durand;Atlas;Ouest;40;59,5\n18/01/2026;Morel;Borée;Est;25;79\n02/02/2026;Durand;Atlas;Est;32;59,5\n15/02/2026;Garnier;Zéphyr;Nord;12;120\n27/02/2026;Morel;Atlas;Ouest;18;59,5\n04/03/2026;Roux;Borée;Nord;30;79\n19/03/2026;Durand;Zéphyr;Est;8;120\n28/03/2026;Garnier;Atlas;Ouest;50;59,5\n"
+  },
+  "etats_acceptes": [
+    "termine"
+  ],
+  "reponse_porte_test": "{\"etapes\": [{\"op\": \"calculer\", \"nom\": \"CA\", \"expression\": \"[Quantité] * [Prix unitaire]\"}, {\"op\": \"grouper\", \"par\": [\"Client\"], \"agregats\": [{\"colonne\": \"CA\", \"fonction\": \"somme\", \"nom\": \"CA total\"}]}, {\"op\": \"trier\", \"colonne\": \"CA total\", \"ordre\": \"decroissant\"}, {\"op\": \"limiter\", \"n\": 3}], \"graphique\": {\"type\": \"aucun\"}}",
+  "compte_rendu_contient": [
+    "5244"
+  ]
+}

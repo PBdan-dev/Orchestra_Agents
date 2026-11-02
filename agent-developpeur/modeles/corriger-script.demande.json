@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "required": [
+    "fichier",
+    "probleme"
+  ],
+  "properties": {
+    "fichier": {
+      "type": "string",
+      "description": "Script Python du projet à corriger. Il n'est jamais modifié : la version corrigée va dans dev/<nom>-corrige/."
+    },
+    "probleme": {
+      "type": "string",
+      "description": "Ce qui ne va pas (message d'erreur, comportement attendu)."
+    }
+  }
+}

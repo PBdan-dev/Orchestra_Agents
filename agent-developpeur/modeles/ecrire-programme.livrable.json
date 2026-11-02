@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "description": "Un dossier dev/<nom>/ : le programme (.py), ses tests (test_*.py) et RAPPORT.md (description, utilisation, résultat des tests, contrôle du code, dernière sortie des tests). État partiel si les tests échouent encore après 2 corrections ou si leur lancement est refusé.",
+  "required": [
+    "fichiers"
+  ],
+  "properties": {
+    "fichiers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^dev/[a-z0-9-]+/[A-Za-z0-9_\\-]+\\.(py|md|txt|json|csv)$"
+      }
+    }
+  }
+}
