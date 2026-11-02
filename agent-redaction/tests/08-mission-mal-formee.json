@@ -1,0 +1,33 @@
+{
+  "description": "mission mal formee",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-redaction",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "rediger-document",
+    "but": "Test de l'agent Rédaction",
+    "critere_reussite": "echec avec un motif qui nomme donnees.sujet",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "envoyer",
+      "publier"
+    ],
+    "cree_le": "2026-11-01T21:00:00+01:00",
+    "id": "test-08-mission-mal-formee",
+    "donnees": {
+      "genre": "rapport"
+    }
+  },
+  "critere_reussite": "echec avec un motif qui nomme donnees.sujet",
+  "fichiers_projet": {},
+  "mal_formee": true,
+  "etats_acceptes": [
+    "echec"
+  ]
+}

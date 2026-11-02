@@ -1,0 +1,42 @@
+{
+  "type": "object",
+  "required": [
+    "fichier",
+    "consigne"
+  ],
+  "properties": {
+    "fichier": {
+      "type": "string",
+      "description": "Texte du projet à réécrire (.md, .txt, Word, PDF). Il n'est jamais modifié."
+    },
+    "consigne": {
+      "enum": [
+        "corriger",
+        "raccourcir",
+        "allonger",
+        "simplifier",
+        "changer-de-ton",
+        "reformuler",
+        "libre"
+      ]
+    },
+    "ton": {
+      "enum": [
+        "formel",
+        "neutre",
+        "amical"
+      ],
+      "description": "Obligatoire pour changer-de-ton."
+    },
+    "precision": {
+      "type": "string",
+      "description": "Obligatoire pour libre : ce qu'il faut faire."
+    },
+    "format": {
+      "enum": [
+        "md",
+        "docx"
+      ]
+    }
+  }
+}

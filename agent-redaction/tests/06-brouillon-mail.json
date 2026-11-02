@@ -1,0 +1,37 @@
+{
+  "description": "brouillon mail",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-redaction",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "brouillon-mail",
+    "but": "Test de l'agent Rédaction",
+    "critere_reussite": "brouillon dans brouillons/ ; l'expéditeur confirme sa présence et annonce l'ordre du jour ; rien n'est envoyé",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "envoyer",
+      "publier"
+    ],
+    "cree_le": "2026-11-01T21:00:00+01:00",
+    "id": "test-06-brouillon-mail",
+    "donnees": {
+      "destinataire": "Claire Martin",
+      "objet": "Réunion de lancement",
+      "points": [
+        "je confirme ma présence",
+        "je vous envoie l'ordre du jour demain"
+      ]
+    }
+  },
+  "critere_reussite": "brouillon dans brouillons/ ; l'expéditeur confirme sa présence et annonce l'ordre du jour ; rien n'est envoyé",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "termine"
+  ]
+}

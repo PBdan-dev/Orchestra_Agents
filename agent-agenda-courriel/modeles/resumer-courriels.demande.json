@@ -1,0 +1,24 @@
+{
+  "type": "object",
+  "properties": {
+    "libelles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Libellés Gmail posés par Mail Adagio. Par défaut : Priority et To Do."
+    },
+    "jours": {
+      "type": "integer",
+      "description": "Période, en jours (par défaut 7, au plus 60)."
+    },
+    "max": {
+      "type": "integer",
+      "description": "Nombre de mails au plus (par défaut 20, au plus 50)."
+    },
+    "compte": {
+      "type": "string",
+      "description": "Adresse Gmail, à donner une fois (elle est retenue)."
+    }
+  }
+}

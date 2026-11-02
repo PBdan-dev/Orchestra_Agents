@@ -1,0 +1,43 @@
+{
+  "description": "faits inventes",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-redaction",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "rediger-document",
+    "but": "Test de l'agent Rédaction",
+    "critere_reussite": "le code signale la date et le chiffre inventés par la réponse fixe (à vérifier)",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "envoyer",
+      "publier"
+    ],
+    "cree_le": "2026-11-01T21:00:00+01:00",
+    "id": "test-13-faits-inventes",
+    "donnees": {
+      "genre": "note",
+      "sujet": "Point d'étape du projet Atlas",
+      "points": [
+        "les essais sont terminés"
+      ]
+    }
+  },
+  "critere_reussite": "le code signale la date et le chiffre inventés par la réponse fixe (à vérifier)",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "termine"
+  ],
+  "reponse_porte_test": "# Point d'étape Atlas\n\nLes essais sont terminés depuis le mardi 14 octobre, avec 98 % de réussite. Je vous confirme le lancement. Vous trouverez ci-joint le rapport.",
+  "compte_rendu_contient": [
+    "nombre(s) absent(s)",
+    "mardi",
+    "pièce jointe annoncée",
+    "engagement absent"
+  ]
+}

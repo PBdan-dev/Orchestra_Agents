@@ -1,0 +1,42 @@
+{
+  "description": "source absente",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-redaction",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "rediger-document",
+    "but": "Test de l'agent Rédaction",
+    "critere_reussite": "partiel : la note est écrite à partir de notes.md ; manquant cite absent.md",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "envoyer",
+      "publier"
+    ],
+    "cree_le": "2026-11-01T21:00:00+01:00",
+    "id": "test-16-source-absente",
+    "donnees": {
+      "genre": "note",
+      "sujet": "Réunion projet Borée",
+      "sources": [
+        "notes.md",
+        "absent.md"
+      ]
+    }
+  },
+  "critere_reussite": "partiel : la note est écrite à partir de notes.md ; manquant cite absent.md",
+  "fichiers_projet": {
+    "notes.md": "Réunion projet Borée - 4 novembre 2026\nPrésents : Paul (chef de projet), Inès (achats), Marc (qualité)\n\n- retard fournisseur batteries : livraison décalée au 15 janvier\n- décision : lancement reporté à mars 2027\n- Inès relance le second fournisseur avant le 20 novembre\n- Marc prépare le plan de tests pour le 1er décembre\n- budget inchangé : 48 000 euros\n"
+  },
+  "etats_acceptes": [
+    "partiel"
+  ],
+  "compte_rendu_contient": [
+    "absent.md"
+  ]
+}

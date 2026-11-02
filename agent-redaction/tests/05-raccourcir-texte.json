@@ -1,0 +1,35 @@
+{
+  "description": "raccourcir texte",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-redaction",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "reecrire-texte",
+    "but": "Test de l'agent Rédaction",
+    "critere_reussite": "texte environ deux fois plus court, sans répétition ; garde avril 2027 et le comité du 10 décembre",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "envoyer",
+      "publier"
+    ],
+    "cree_le": "2026-11-01T21:00:00+01:00",
+    "id": "test-05-raccourcir-texte",
+    "donnees": {
+      "fichier": "atlas.md",
+      "consigne": "raccourcir"
+    }
+  },
+  "critere_reussite": "texte environ deux fois plus court, sans répétition ; garde avril 2027 et le comité du 10 décembre",
+  "fichiers_projet": {
+    "atlas.md": "Le projet Atlas a démarré en janvier 2026 avec une équipe de 6 personnes. Après une première phase d'étude de 3 mois, l'équipe a retenu deux fournisseurs pour les panneaux. Les essais de terrain ont eu lieu sur 4 sites pendant l'été. Les résultats montrent une autonomie moyenne de 7 heures et un taux de panne de 2 %. Le coût unitaire visé est de 35 euros. La production en série doit commencer en avril 2027, sous réserve de l'accord du comité du 10 décembre. Le projet Atlas a démarré en janvier 2026 avec une équipe de 6 personnes. Après une première phase d'étude de 3 mois, l'équipe a retenu deux fournisseurs pour les panneaux. Les essais de terrain ont eu lieu sur 4 sites pendant l'été. Les résultats montrent une autonomie moyenne de 7 heures et un taux de panne de 2 %. Le coût unitaire visé est de 35 euros. La production en série doit commencer en avril 2027, sous réserve de l'accord du comité du 10 décembre. "
+  },
+  "etats_acceptes": [
+    "termine"
+  ]
+}

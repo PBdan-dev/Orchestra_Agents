@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "description": "redactions/<nom du fichier>_<consigne>.md (et .docx si demandé) ; encadré « À vérifier » si un nombre a disparu ou a été ajouté.",
+  "required": [
+    "fichiers"
+  ],
+  "properties": {
+    "fichiers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^redactions/[a-z0-9-]+_[a-z0-9-]+(-[0-9]+)?\\.(md|docx)$"
+      }
+    }
+  }
+}

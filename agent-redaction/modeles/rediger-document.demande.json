@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "required": [
+    "genre",
+    "sujet"
+  ],
+  "properties": {
+    "genre": {
+      "enum": [
+        "compte-rendu",
+        "rapport",
+        "note",
+        "lettre",
+        "article",
+        "publication",
+        "autre"
+      ]
+    },
+    "sujet": {
+      "type": "string",
+      "description": "De quoi parle le document, en une phrase."
+    },
+    "points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Idées, faits ou décisions à faire figurer, tels que l'utilisateur les a donnés."
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Fichiers du projet à utiliser comme matière (notes .md/.txt, Word, PDF, Excel)."
+    },
+    "destinataires": {
+      "type": "string"
+    },
+    "ton": {
+      "enum": [
+        "formel",
+        "neutre",
+        "amical"
+      ],
+      "description": "Par défaut : ton préféré retenu, sinon neutre."
+    },
+    "longueur": {
+      "enum": [
+        "court",
+        "moyen",
+        "long"
+      ],
+      "description": "Environ 150, 400 ou 900 mots. Par défaut : moyen."
+    },
+    "format": {
+      "enum": [
+        "md",
+        "docx"
+      ],
+      "description": "docx : une version Word en plus du Markdown."
+    },
+    "titre": {
+      "type": "string"
+    },
+    "signature": {
+      "type": "string",
+      "description": "Pour une lettre ; retenue pour la suite."
+    },
+    "pieces_jointes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
