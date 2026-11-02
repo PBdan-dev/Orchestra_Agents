@@ -1,0 +1,50 @@
+{
+  "description": "pause pendant redaction",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-redaction",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "rediger-document",
+    "but": "Test de l'agent Rédaction",
+    "critere_reussite": "événement en_pause, puis document écrit (termine)",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "envoyer",
+      "publier"
+    ],
+    "cree_le": "2026-11-01T21:00:00+01:00",
+    "id": "test-15-pause-pendant-redaction",
+    "donnees": {
+      "genre": "note",
+      "sujet": "Point d'étape du projet Atlas",
+      "points": [
+        "les essais sont terminés"
+      ]
+    }
+  },
+  "critere_reussite": "événement en_pause, puis document écrit (termine)",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "termine"
+  ],
+  "delai_porte_s": 0.5,
+  "evenements_attendus": [
+    "en_pause"
+  ],
+  "messages": [
+    {
+      "apres_evenement": "etape",
+      "type": "pause"
+    },
+    {
+      "apres_evenement": "en_pause",
+      "type": "reprendre"
+    }
+  ]
+}

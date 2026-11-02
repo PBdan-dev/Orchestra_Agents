@@ -1,0 +1,25 @@
+{
+  "type": "object",
+  "properties": {
+    "debut": {
+      "type": "string",
+      "description": "AAAA-MM-JJ (par défaut aujourd'hui)."
+    },
+    "fin": {
+      "type": "string",
+      "description": "AAAA-MM-JJ, exclue (par défaut début + 7 jours, 3 mois au plus)."
+    },
+    "creneaux_libres": {
+      "type": "boolean",
+      "description": "Par défaut true."
+    },
+    "duree_min": {
+      "type": "integer",
+      "description": "Durée minimale d'un créneau libre, en minutes (par défaut 60)."
+    },
+    "heures": {
+      "type": "string",
+      "description": "Heures de travail, par exemple « 9-18 » (par défaut)."
+    }
+  }
+}

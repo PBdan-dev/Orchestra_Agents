@@ -13,6 +13,11 @@ Agents de base et agents de test pour [Orchestra](https://github.com/PBdan-dev/O
 | Agent | Ce qu'il fait | Dépendances |
 |---|---|---|
 | `agent-documents` | Extrait le texte, résume, extrait des données de documents PDF, Word, Excel, CSV, texte ; renomme, déplace, supprime après validation (reprend `agent-fichiers`) | `pypdf` (BSD-3), voir `requirements.txt` |
+| `agent-recherche-web` | Recherche sur le web (API Brave Search avec une clé, sinon Wikipédia), lit 4 à 12 pages, rapport où chaque information cite sa source | `pypdf` facultatif ; clé `brave_api_key` facultative |
+| `agent-redaction` | Compte rendu, rapport, note, lettre, article, publication, réécriture, brouillon de mail ; Markdown et Word ; n'envoie rien | `pypdf` facultatif (sources PDF) |
+| `agent-tableur` | Question sur un tableau CSV ou Excel : plan d'analyse en JSON exécuté par le code (aucun code du modèle), résultat Excel/CSV et graphique SVG | aucune |
+| `agent-agenda-courriel` | Complète Mail Adagio sans refaire le tri : résumé des mails « Priority » et « To Do », brouillons Gmail, envoi après validation, Google Agenda (iCal), créneaux libres, .ics | aucune ; identifiants `gmail_mot_de_passe_application`, `agenda_ical` |
+| `agent-developpeur` | Petit programme Python et ses tests dans `dev/<nom>/`, contrôle ast avant tout lancement, validation hors liste blanche | aucune |
 
 Un agent qui a un `requirements.txt` s'installe dans son propre environnement, dans son dossier d'installation (`agents/installes/<id>/`) :
 ```
@@ -20,7 +25,7 @@ python -m venv .venv
 .venv\Scripts\python -m pip install -r requirements.txt
 ```
 Orchestra lance `.venv\Scripts\python.exe` quand ce dossier existe. Pour rejouer les tests, lancer `rejouer_tests.py` avec ce même Python.
-Les tests d'`agent-documents` sont fabriqués par `outils/tests_agent_documents.py` (documents PDF, Word et Excel en `base64:`, voir `outils/documents_de_test.py`).
+Les tests de chaque agent sont fabriqués par `outils/tests_agent_<nom>.py` ; ceux d'`agent-documents` par `outils/tests_agent_documents.py` (documents PDF, Word et Excel en `base64:`, voir `outils/documents_de_test.py`).
 
 Non couverts par les agents de test : secrets (`secret_`), réseau, agents hébergés.
 
@@ -48,3 +53,7 @@ python agent-certification/scripts/rejouer_tests.py ../Orchestra_Agents/agent-br
 3. Entrée du catalogue dans `agents.json` : seulement quand Orchestra lit le manifeste 2.0 (lots T1 et T4). Avant, Orchestra V1 rejette tout le catalogue.
 
 Python 3.10 ou plus, bibliothèque standard uniquement. Licence MIT (voir chaque manifeste).
+
+## Code commun
+
+`commun/contrat.py` (contrat stdio-json) et `commun/consignes.py` (phrases qui ordonnent à l'agent d'oublier sa mission, retirées par le code avant le modèle) sont copiés tels quels dans les agents qui en ont besoin. Les rapports de certification sont dans `certifications/`.

@@ -1,0 +1,35 @@
+{
+  "description": "corriger texte",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-redaction",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "reecrire-texte",
+    "but": "Test de l'agent Rédaction",
+    "critere_reussite": "fautes corrigées (à, déplacée, confirmer) ; mardi 12 novembre, 14 h et 2 500 euros conservés ; message.txt inchangé",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "envoyer",
+      "publier"
+    ],
+    "cree_le": "2026-11-01T21:00:00+01:00",
+    "id": "test-04-corriger-texte",
+    "donnees": {
+      "fichier": "message.txt",
+      "consigne": "corriger"
+    }
+  },
+  "critere_reussite": "fautes corrigées (à, déplacée, confirmer) ; mardi 12 novembre, 14 h et 2 500 euros conservés ; message.txt inchangé",
+  "fichiers_projet": {
+    "message.txt": "Bonjour a tous,\nJe vous informe que la réunion de lundi est déplacer au mardi 12 novembre a 14h. Merci de confirmé votre présence avant vendredi. Le budget de 2 500 euros reste inchangé.\nCordialement\n"
+  },
+  "etats_acceptes": [
+    "termine"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "required": [
+    "fichier"
+  ],
+  "properties": {
+    "fichier": {
+      "type": "string",
+      "description": "Tableau du projet : .csv ou .xlsx."
+    },
+    "feuille": {
+      "type": "string"
+    }
+  }
+}

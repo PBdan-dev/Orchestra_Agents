@@ -1,0 +1,47 @@
+{
+  "description": "pause pendant analyse",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-tableur",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "analyser-tableau",
+    "but": "Test de l'agent Tableur",
+    "critere_reussite": "événement en_pause, puis analyse écrite",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "tableau"
+    },
+    "validation": [],
+    "cree_le": "2026-11-01T22:00:00+01:00",
+    "id": "test-13-pause-pendant-analyse",
+    "donnees": {
+      "fichier": "ventes.xlsx",
+      "question": "Quel est le chiffre d'affaires par mois ?"
+    }
+  },
+  "critere_reussite": "événement en_pause, puis analyse écrite",
+  "fichiers_projet": {
+    "ventes.xlsx": "base64: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"
+  },
+  "etats_acceptes": [
+    "termine"
+  ],
+  "delai_porte_s": 0.5,
+  "reponse_porte_test": "{\"etapes\": [{\"op\": \"calculer\", \"nom\": \"CA\", \"expression\": \"[Quantité] * [Prix unitaire]\"}, {\"op\": \"calculer\", \"nom\": \"Mois\", \"expression\": \"mois([Date])\"}, {\"op\": \"grouper\", \"par\": [\"Mois\"], \"agregats\": [{\"colonne\": \"CA\", \"fonction\": \"somme\", \"nom\": \"CA total\"}]}, {\"op\": \"trier\", \"colonne\": \"Mois\", \"ordre\": \"croissant\"}], \"graphique\": {\"type\": \"barres\", \"x\": \"Mois\", \"y\": \"CA total\", \"titre\": \"Chiffre d'affaires par mois\"}}",
+  "evenements_attendus": [
+    "en_pause"
+  ],
+  "messages": [
+    {
+      "apres_evenement": "etape",
+      "type": "pause"
+    },
+    {
+      "apres_evenement": "en_pause",
+      "type": "reprendre"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "required": [
+    "titre",
+    "debut"
+  ],
+  "properties": {
+    "titre": {
+      "type": "string"
+    },
+    "debut": {
+      "type": "string",
+      "description": "AAAA-MM-JJ HH:MM (heure de Paris)."
+    },
+    "fin": {
+      "type": "string",
+      "description": "AAAA-MM-JJ HH:MM ; sinon duree_min."
+    },
+    "duree_min": {
+      "type": "integer",
+      "description": "Par défaut 60."
+    },
+    "lieu": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "invites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Adresses des invités."
+    },
+    "envoyer_invitation": {
+      "type": "boolean",
+      "description": "true : envoyer l'invitation après validation à l'écran."
+    },
+    "compte": {
+      "type": "string"
+    }
+  }
+}

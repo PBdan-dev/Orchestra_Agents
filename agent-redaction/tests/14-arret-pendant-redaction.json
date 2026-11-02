@@ -1,0 +1,43 @@
+{
+  "description": "arret pendant redaction",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-redaction",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "rediger-document",
+    "but": "Test de l'agent Rédaction",
+    "critere_reussite": "arrete_proprement, aucun document écrit",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "envoyer",
+      "publier"
+    ],
+    "cree_le": "2026-11-01T21:00:00+01:00",
+    "id": "test-14-arret-pendant-redaction",
+    "donnees": {
+      "genre": "note",
+      "sujet": "Point d'étape du projet Atlas",
+      "points": [
+        "les essais sont terminés"
+      ]
+    }
+  },
+  "critere_reussite": "arrete_proprement, aucun document écrit",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "arrete_proprement"
+  ],
+  "delai_porte_s": 0.5,
+  "messages": [
+    {
+      "apres_evenement": "etape",
+      "type": "arret"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "description": "reponse a un mail",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-redaction",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "brouillon-mail",
+    "but": "Test de l'agent Rédaction",
+    "critere_reussite": "réponse qui confirme la présence au 18 novembre ; n'annonce pas d'ordre du jour joint",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 300
+    },
+    "format_retour": {
+      "type": "fichier"
+    },
+    "validation": [
+      "envoyer",
+      "publier"
+    ],
+    "cree_le": "2026-11-01T21:00:00+01:00",
+    "id": "test-07-reponse-a-un-mail",
+    "donnees": {
+      "destinataire": "Claire Martin",
+      "objet": "Re: Réunion de lancement",
+      "reponse_a": "mail.txt",
+      "points": [
+        "je confirme ma présence"
+      ]
+    }
+  },
+  "critere_reussite": "réponse qui confirme la présence au 18 novembre ; n'annonce pas d'ordre du jour joint",
+  "fichiers_projet": {
+    "mail.txt": "De : claire.martin@exemple.com\nObjet : Réunion de lancement\n\nBonjour,\nPouvez-vous me confirmer votre présence à la réunion de lancement du 18 novembre à 10 h ? Merci de m'envoyer aussi l'ordre du jour.\nClaire\n"
+  },
+  "etats_acceptes": [
+    "termine"
+  ]
+}

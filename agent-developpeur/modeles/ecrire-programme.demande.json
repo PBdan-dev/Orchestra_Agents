@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "besoin"
+  ],
+  "properties": {
+    "besoin": {
+      "type": "string",
+      "description": "Ce que le programme doit faire, avec ses entrées et ses sorties (ex. « convertir un CSV de relevés en un tableau des totaux par mois »)."
+    },
+    "nom": {
+      "type": "string",
+      "description": "Facultatif : nom court du programme (sert au nom du dossier dev/<nom>/)."
+    },
+    "exemples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Facultatif : 1 à 3 fichiers du projet qui montrent les données d'entrée."
+    }
+  }
+}

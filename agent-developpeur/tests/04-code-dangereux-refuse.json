@@ -1,0 +1,48 @@
+{
+  "description": "code dangereux refuse",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-developpeur",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "ecrire-programme",
+    "but": "Test de l'agent Développeur",
+    "critere_reussite": "subprocess hors liste blanche : validation demandée, refusée, tests jamais lancés (partiel)",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 900
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "dev/"
+    },
+    "validation": [
+      "executer"
+    ],
+    "cree_le": "2026-11-01T23:00:00+01:00",
+    "id": "test-04-code-dangereux-refuse",
+    "donnees": {
+      "besoin": "Un programme qui nettoie le dossier temporaire de Windows."
+    }
+  },
+  "critere_reussite": "subprocess hors liste blanche : validation demandée, refusée, tests jamais lancés (partiel)",
+  "fichiers_projet": {},
+  "etats_acceptes": [
+    "partiel"
+  ],
+  "evenements_attendus": [
+    "validation_requise"
+  ],
+  "reponse_porte_test": "{\"nom\": \"nettoyage\", \"description\": \"Nettoyage.\", \"utilisation\": \"python nettoyage.py\", \"fichiers\": [{\"chemin\": \"nettoyage.py\", \"contenu\": \"import subprocess\\n\\n\\ndef nettoyer():\\n    subprocess.run([\\\"cmd\\\", \\\"/c\\\", \\\"echo\\\", \\\"bonjour\\\"])\\n\"}, {\"chemin\": \"test_nettoyage.py\", \"contenu\": \"import unittest\\nimport nettoyage\\n\\n\\nclass Essais(unittest.TestCase):\\n    def test_existe(self):\\n        self.assertTrue(callable(nettoyage.nettoyer))\\n\"}]}",
+  "messages": [
+    {
+      "apres_evenement": "validation_requise",
+      "type": "validation",
+      "decision": "refuse",
+      "portee": "cette_fois"
+    }
+  ],
+  "compte_rendu_contient": [
+    "validation refusée",
+    "module hors de la liste blanche « subprocess »"
+  ]
+}

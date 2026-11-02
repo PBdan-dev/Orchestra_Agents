@@ -1,0 +1,40 @@
+{
+  "type": "object",
+  "properties": {
+    "reponse_a": {
+      "type": "string",
+      "description": "Recherche Gmail du mail auquel répondre (ex. « from:claire réunion »). Sinon, destinataire et objet."
+    },
+    "destinataire": {
+      "type": "string",
+      "description": "Adresse mail (obligatoire sans reponse_a)."
+    },
+    "objet": {
+      "type": "string"
+    },
+    "points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Ce que le mail doit dire, du point de vue de l'expéditeur."
+    },
+    "ton": {
+      "enum": [
+        "formel",
+        "neutre",
+        "amical"
+      ]
+    },
+    "signature": {
+      "type": "string"
+    },
+    "envoyer": {
+      "type": "boolean",
+      "description": "true : envoyer après validation à l'écran ; sinon le mail reste en brouillon dans Gmail."
+    },
+    "compte": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "description": "mission mal formee",
+  "mission": {
+    "version": 1,
+    "agent_id": "agent-developpeur",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "ecrire-programme",
+    "but": "Test de l'agent Développeur",
+    "critere_reussite": "echec avec un motif qui nomme donnees.besoin",
+    "contexte": "",
+    "limites": {
+      "duree_max_s": 900
+    },
+    "format_retour": {
+      "type": "fichier",
+      "destination": "dev/"
+    },
+    "validation": [
+      "executer"
+    ],
+    "cree_le": "2026-11-01T23:00:00+01:00",
+    "id": "test-07-mission-mal-formee",
+    "donnees": {
+      "nom": "x"
+    }
+  },
+  "critere_reussite": "echec avec un motif qui nomme donnees.besoin",
+  "fichiers_projet": {},
+  "mal_formee": true,
+  "etats_acceptes": [
+    "echec"
+  ]
+}

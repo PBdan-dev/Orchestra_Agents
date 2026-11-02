@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "description": "Le mail dans les Brouillons de Gmail (et envoyé seulement après validation si envoyer = true), avec une copie courriels/AAAA-MM-JJ_<objet>.md.",
+  "required": [
+    "fichiers"
+  ],
+  "properties": {
+    "fichiers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^courriels/[0-9]{4}-[0-9]{2}-[0-9]{2}_[a-z0-9-]+(-[0-9]+)?\\.md$"
+      }
+    }
+  }
+}
