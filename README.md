@@ -18,6 +18,7 @@ Agents de base et agents de test pour [Orchestra](https://github.com/PBdan-dev/O
 | `agent-tableur` | Question sur un tableau CSV ou Excel : plan d'analyse en JSON exécuté par le code (aucun code du modèle), résultat Excel/CSV et graphique SVG | aucune |
 | `agent-agenda-courriel` | Complète Mail Adagio sans refaire le tri : résumé des mails « Priority » et « To Do », brouillons Gmail, envoi après validation, Google Agenda (iCal), créneaux libres, .ics | aucune ; identifiants `gmail_mot_de_passe_application`, `agenda_ical` |
 | `agent-developpeur` | Petit programme Python et ses tests dans `dev/<nom>/`, contrôle ast avant tout lancement, validation hors liste blanche | aucune |
+| `agent-mail-adagio` (id `mail-adagio`) | Tri de Gmail : un libellé de thème et un de statut par mail, mails triés sortis de la boîte de réception, annulable ; aperçu sans rien changer ; demande en langage courant ; ne supprime jamais en mission. Aussi utilisable seul (fenêtre `Mail Adagio.bat`). Source : [Mail_Adagio](https://github.com/PBdan-dev/Mail_Adagio) | `PyYAML` (MIT), `keyring` (MIT) ; identifiant `gmail_mot_de_passe_application` |
 
 Un agent qui a un `requirements.txt` s'installe dans son propre environnement, dans son dossier d'installation (`agents/installes/<id>/`) :
 ```

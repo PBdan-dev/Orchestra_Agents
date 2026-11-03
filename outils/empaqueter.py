@@ -2,7 +2,7 @@
 
 Usage : python outils/empaqueter.py [agent ...]      (sans argument : tous les dossiers agent-*)
 Sortie : dist/<id>-<version>.zip et dist/<id>-<version>.catalogue.json (à coller dans agents.json
-après la publication de la Release). Copie d'abord commun/contrat.py dans chaque agent."""
+après la publication de la Release). Copie d'abord commun/contrat.py dans chaque agent qui l'utilise."""
 import hashlib, json, shutil, sys, zipfile
 from pathlib import Path
 
@@ -11,7 +11,8 @@ EXCLUS = {"__pycache__", "memoire", "resultats", ".venv"}
 
 
 def empaqueter(dossier):
-    shutil.copy2(RACINE / "commun" / "contrat.py", dossier / "contrat.py")
+    if (dossier / "contrat.py").exists():  # un agent qui a son propre code de contrat (Mail Adagio) n'en reçoit pas
+        shutil.copy2(RACINE / "commun" / "contrat.py", dossier / "contrat.py")
     m = json.loads((dossier / "manifeste.json").read_text(encoding="utf-8"))
     nom = f"{m['id']}-{m['version']}"
     dist = RACINE / "dist"
