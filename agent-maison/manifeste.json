@@ -301,7 +301,21 @@
     "contrat": 1
   },
   "certification": {
-    "statut": "non_certifie"
+    "statut": "orchestra_certified",
+    "version_certifiee": "1.0.0",
+    "date": "2026-11-03",
+    "mesures": {
+      "piloter-maison": {
+        "duree_max_s": 24,
+        "tokens_max": 9078,
+        "pas_max": 3
+      },
+      "executer-commandes": {
+        "duree_max_s": 1,
+        "tokens_max": 0,
+        "pas_max": 0
+      }
+    }
   },
   "licence": "MIT",
   "color": "#f6ad55",
