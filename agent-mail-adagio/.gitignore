@@ -1,0 +1,7 @@
+config.yaml
+*.db
+*.log
+__pycache__/
+.venv/
+.adagio-ui*.json
+memoire/
