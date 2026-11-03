@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "required": [
+    "demande"
+  ],
+  "properties": {
+    "demande": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Ce qu'il faut faire, en français. Ex. « Tamise le salon à 30 % et mets FIP sur le Nest Mini »."
+    }
+  }
+}

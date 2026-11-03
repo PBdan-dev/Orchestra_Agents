@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "required": [
+    "appels"
+  ],
+  "properties": {
+    "appels": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "outil"
+        ],
+        "properties": {
+          "outil": {
+            "type": "string",
+            "description": "Nom d'une fonction exposée de la fiche (read_… ou action_…)."
+          },
+          "arguments": {
+            "type": "object",
+            "description": "Paramètres de l'outil ; « raison » obligatoire pour une action."
+          }
+        }
+      }
+    }
+  }
+}

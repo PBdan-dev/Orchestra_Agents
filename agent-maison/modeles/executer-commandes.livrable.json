@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "description": "Livrable : resultat.texte liste chaque appel numéroté (fait ou erreur, résultat des lectures) ; état partiel et liste manquant si un appel échoue. Si format_retour.type = fichier, rapport Markdown à format_retour.destination.",
+  "required": [
+    "texte"
+  ],
+  "properties": {
+    "texte": {
+      "type": "string"
+    },
+    "fichier": {
+      "type": "string",
+      "pattern": "\\.md$"
+    }
+  }
+}

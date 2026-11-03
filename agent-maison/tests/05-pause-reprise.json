@@ -1,0 +1,48 @@
+{
+  "description": "pause puis reprise",
+  "mission": {
+    "version": 1,
+    "id": "test-05",
+    "agent_id": "agent-maison",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "piloter-maison",
+    "but": "Piloter la maison",
+    "critere_reussite": "événement en_pause émis, puis mission terminée normalement après reprendre",
+    "contexte": "",
+    "limites": {
+      "outils_interdits": []
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-11-02T22:00:00+01:00",
+    "donnees": {
+      "demande": "Quelles lampes sont allumées ?"
+    }
+  },
+  "critere_reussite": "événement en_pause émis, puis mission terminée normalement après reprendre",
+  "pages_web": {
+    "/api/test/lights": {
+      "contenu": "{\"1\": {\"name\": \"Salon\", \"state\": {\"on\": true, \"bri\": 127, \"hue\": 8000, \"sat\": 120, \"reachable\": true}}, \"2\": {\"name\": \"Cuisine\", \"state\": {\"on\": false, \"bri\": 254, \"reachable\": true}}}",
+      "type": "application/json"
+    }
+  },
+  "delai_porte_s": 0.5,
+  "messages": [
+    {
+      "apres_evenement": "demarrage",
+      "type": "pause"
+    },
+    {
+      "apres_evenement": "en_pause",
+      "type": "reprendre"
+    }
+  ],
+  "etats_acceptes": [
+    "termine"
+  ],
+  "evenements_attendus": [
+    "en_pause"
+  ]
+}

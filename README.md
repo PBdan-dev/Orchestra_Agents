@@ -18,6 +18,7 @@ Agents de base et agents de test pour [Orchestra](https://github.com/PBdan-dev/O
 | `agent-tableur` | Question sur un tableau CSV ou Excel : plan d'analyse en JSON exécuté par le code (aucun code du modèle), résultat Excel/CSV et graphique SVG | aucune |
 | `agent-agenda-courriel` | Complète Mail Adagio sans refaire le tri : résumé des mails « Priority » et « To Do », brouillons Gmail, envoi après validation, Google Agenda (iCal), créneaux libres, .ics | aucune ; identifiants `gmail_mot_de_passe_application`, `agenda_ical` |
 | `agent-developpeur` | Petit programme Python et ses tests dans `dev/<nom>/`, contrôle ast avant tout lancement, validation hors liste blanche | aucune |
+| `agent-maison` | Maison connectée sur le réseau local : lampes Philips Hue, enceintes Google Nest (Cast), TV LG webOS ; demande en langage naturel ou liste de commandes ; annonce vocale et message sur la TV après validation | aucune ; identifiants `hue_cle`, `tv_cle` (repris de home_control.exe par `configurer.bat`) |
 
 Un agent qui a un `requirements.txt` s'installe dans son propre environnement, dans son dossier d'installation (`agents/installes/<id>/`) :
 ```
