@@ -1,0 +1,323 @@
+{
+  "format_manifeste": "2.0",
+  "id": "agent-maison",
+  "name": "Maison connectée",
+  "version": "1.0.0",
+  "author": {
+    "nom": "PB",
+    "contact": "https://github.com/PBdan-dev"
+  },
+  "description": "Pilote la maison sur le réseau local : lampes Philips Hue, enceintes Google Nest (Cast) et TV LG webOS. Demande en langage naturel ou liste de commandes. Python, bibliothèque standard seule.",
+  "categorie": "maison",
+  "capabilities": [
+    "maison",
+    "lumières",
+    "enceintes",
+    "télévision",
+    "domotique"
+  ],
+  "fiche": {
+    "sait_faire": [
+      "Lire l'état et régler les lampes Philips Hue (allumer, éteindre, luminosité, couleur)",
+      "Lire l'état des enceintes Google Nest, régler le volume, piloter la lecture, lancer une radio ou une URL audio",
+      "Faire prononcer un message par une enceinte, après validation",
+      "Lire l'état de la TV LG webOS, l'allumer ou l'éteindre, changer source, appli, chaîne, volume, envoyer des touches ou un lien",
+      "Afficher un message à l'écran de la TV, après validation",
+      "Exécuter une liste de commandes fixée à l'avance, sans modèle (tâche executer-commandes)"
+    ],
+    "ne_sait_pas_faire": [
+      "Piloter la Bbox : son API exige le mot de passe administrateur du compte, interdit par Orchestra",
+      "Lire sur la TV ou les enceintes un fichier du PC (le PC devrait servir le fichier pendant toute la lecture) : utiliser home_control.exe",
+      "Appairer un nouvel appareil (pont Hue, TV) : se fait une fois dans home_control.exe, puis configurer.bat",
+      "Vérifier l'effet physique d'une commande (voir la lumière, entendre le son)",
+      "Récupérer l'image de la TV (flux protégé par DRM)",
+      "Découvrir seul les enceintes : leurs IP sont données une fois à configurer.bat",
+      "Lire un lien vidéo direct (mp4…) dans le lecteur de la TV : il s'ouvre dans le navigateur de la TV"
+    ],
+    "fonctions": [
+      {
+        "nom": "memory_lire",
+        "description": "Lit memoire/appareils.json (adresses des appareils), traité comme une donnée.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "memory_ecrire",
+        "description": "Écrit memoire/appareils.json ; utilisé seulement par la commande configurer, hors mission.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "secret_lire",
+        "description": "Lit une clé dans le coffre-fort Windows (orchestra/agent-maison/<nom>).",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "secret_enregistrer",
+        "description": "Range une clé dans le coffre-fort Windows ; utilisé seulement par la commande configurer, hors mission.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_hue_lampes",
+        "description": "Lit la liste brute des lampes sur le pont Hue (HTTP local).",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_lumieres",
+        "description": "Lit l'état des lampes Philips Hue sur le pont (réseau local).",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_lumiere_regler",
+        "description": "Allume, éteint ou règle la luminosité et la couleur d'une lampe Hue ou de toutes.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "read_cast_ouvrir",
+        "description": "Ouvre une session Cast (TLS, port 8009) avec une enceinte ; aucun effet.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_cast_message",
+        "description": "Lit un message Cast et répond aux PING de maintien de session.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_cast_attendre",
+        "description": "Attend la réponse Cast portant un numéro de requête donné.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_cast_etat",
+        "description": "Demande d'état GET_STATUS au récepteur ou au lecteur média d'une enceinte (lecture seule).",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "action_cast_commande",
+        "description": "Envoie une commande Cast à effet (volume, lecture, lancement, arrêt).",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "action_cast_lire",
+        "description": "Lance le lecteur média par défaut d'une enceinte et y charge une URL.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_etat_enceinte",
+        "description": "Assemble l'état d'une enceinte (volume, appli, titre, lecture).",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_enceintes",
+        "description": "Lit l'état des enceintes Google Cast (appli, titre, volume).",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_enceinte_volume",
+        "description": "Règle le volume ou la sourdine d'une enceinte.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_enceinte_controle",
+        "description": "Lecture, pause, suivant, précédent ou arrêt sur une enceinte.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_enceinte_lire_url",
+        "description": "Fait lire une URL audio (http/https) par une enceinte.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_enceinte_lire_radio",
+        "description": "Lance une radio française sur une enceinte.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_sensitive_enceinte_dire",
+        "description": "Fait prononcer un texte par une enceinte (synthèse vocale Windows, fichier .wav écrit dans le projet). Irréversible : validation demandée.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "read_ws_ouvrir",
+        "description": "Ouvre une WebSocket (ws ou wss) vers la TV.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_ws_message",
+        "description": "Lit un message WebSocket de la TV et répond aux ping.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_tv_attendre",
+        "description": "Attend la réponse SSAP portant un identifiant donné.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_connexion_tv",
+        "description": "Ouvre la connexion SSAP avec la TV et s'enregistre avec la clé lue dans le coffre-fort ; aucun effet.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_tv_requete",
+        "description": "Requête SSAP de lecture seule (liste fermée LECTURES_TV).",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "action_tv_commande",
+        "description": "Requête SSAP à effet (volume, source, lancement, extinction…).",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_tv_etat",
+        "description": "Lit l'état de la TV LG (alimentation, appli, chaîne, programme, volume).",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "read_tv_sources_et_applis",
+        "description": "Lit la liste des sources et applications de la TV.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_tv_alimentation",
+        "description": "Allume la TV (Wake-on-LAN) ou l'éteint.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_tv_volume",
+        "description": "Règle le volume ou la sourdine de la TV.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_tv_source",
+        "description": "Change la source de la TV (HDMI…).",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_tv_lancer_appli",
+        "description": "Lance une application sur la TV.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_tv_chaine",
+        "description": "Change de chaîne sur la TV.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_tv_touches",
+        "description": "Envoie des touches de télécommande à la TV.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_tv_lecture",
+        "description": "Lecture, pause ou arrêt du média en cours sur la TV.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_tv_ouvrir_lien",
+        "description": "Ouvre un lien http/https sur la TV (YouTube dans l'appli, sinon navigateur).",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_sensitive_tv_message",
+        "description": "Affiche un message à l'écran de la TV. Irréversible : validation demandée.",
+        "expose_au_modele": true
+      },
+      {
+        "nom": "action_ecrire_rapport",
+        "description": "Écrit le compte rendu Markdown dans un nouveau fichier du projet, sans rien écraser.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_modele",
+        "description": "Appelle le modèle par la porte d'Orchestra (ORCHESTRA_MODELE_URL, ORCHESTRA_JETON).",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_reglages_home_control",
+        "description": "Commande configurer, hors mission : lit hue_config.json, tv_lg.json, enceintes.json de home_control.exe.",
+        "expose_au_modele": false
+      },
+      {
+        "nom": "read_nom_enceinte",
+        "description": "Commande configurer, hors mission : lit le nom d'une enceinte (eureka_info, port 8008).",
+        "expose_au_modele": false
+      }
+    ],
+    "consignes": "Agit seulement sur les appareils du réseau local listés dans memoire/appareils.json. N'écrit que dans le dossier du projet (compte rendu, fichiers .wav des annonces) ; la mémoire n'est écrite que par la commande configurer, hors mission. Demande une validation avant de parler par une enceinte ou d'afficher un message sur la TV."
+  },
+  "taches": [
+    {
+      "type": "piloter-maison",
+      "modele_demande": "modeles/piloter-maison.demande.json",
+      "modele_livrable": "modeles/piloter-maison.livrable.json"
+    },
+    {
+      "type": "executer-commandes",
+      "modele_demande": "modeles/executer-commandes.demande.json",
+      "modele_livrable": "modeles/executer-commandes.livrable.json"
+    }
+  ],
+  "execution": {
+    "type": "local",
+    "systemes": [
+      "windows-x64"
+    ],
+    "commande": "python agent.py",
+    "protocole": "stdio-json"
+  },
+  "modele": {
+    "via": "porte",
+    "demande": "inherit",
+    "minimum": "qwen3.5:9b",
+    "recommande": "qwen3.6:27b"
+  },
+  "ressources": {
+    "vram_go": 0,
+    "gpu_exclusif": false
+  },
+  "reseau_declare": [
+    "porte d'Orchestra (ORCHESTRA_MODELE_URL)",
+    "réseau local : pont Philips Hue (HTTP 80)",
+    "réseau local : enceintes Google Cast (TCP 8009 TLS ; HTTP 8008 pour leur nom, commande configurer seulement)",
+    "réseau local : TV LG webOS (TCP 3000/3001, port de la télécommande donné par la TV), Wake-on-LAN (UDP 9, diffusion)",
+    "écoute locale : serveur HTTP temporaire (port libre) pour envoyer le .wav d'une annonce aux enceintes"
+  ],
+  "acces_declares": {
+    "fichiers": "dossier du projet de la mission (rapport, annonces/*.wav) ; agents/installes/agent-maison/memoire/"
+  },
+  "identifiants": [
+    {
+      "nom": "hue_cle",
+      "type": "cle_api",
+      "raison": "Clé d'application du pont Philips Hue (créée à l'appairage, pas un mot de passe de compte)"
+    },
+    {
+      "nom": "tv_cle",
+      "type": "jeton",
+      "raison": "Client-key webOS donnée par la TV LG à l'appairage"
+    }
+  ],
+  "memoire_propre": true,
+  "compatibilite": {
+    "orchestra_min": "1.0.0",
+    "contrat": 1
+  },
+  "certification": {
+    "statut": "orchestra_certified",
+    "version_certifiee": "1.0.0",
+    "date": "2026-11-03",
+    "mesures": {
+      "piloter-maison": {
+        "duree_max_s": 24,
+        "tokens_max": 9078,
+        "pas_max": 3
+      },
+      "executer-commandes": {
+        "duree_max_s": 1,
+        "tokens_max": 0,
+        "pas_max": 0
+      }
+    }
+  },
+  "licence": "MIT",
+  "color": "#f6ad55",
+  "icon": "home"
+}

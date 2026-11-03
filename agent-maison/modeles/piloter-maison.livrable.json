@@ -1,0 +1,28 @@
+{
+  "type": "object",
+  "description": "Livrable : resultat.texte (1 à 5 phrases : fait / pas fait) et actions_declarees du compte rendu. Si format_retour.type = fichier, le même contenu est écrit en Markdown à format_retour.destination.",
+  "required": [
+    "texte",
+    "actions"
+  ],
+  "properties": {
+    "texte": {
+      "type": "string"
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "action",
+          "detail",
+          "raison"
+        ]
+      }
+    },
+    "fichier": {
+      "type": "string",
+      "pattern": "\\.md$"
+    }
+  }
+}

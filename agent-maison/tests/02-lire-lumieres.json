@@ -1,0 +1,43 @@
+{
+  "description": "lecture des lampes sur un faux pont Hue, sans modèle",
+  "mission": {
+    "version": 1,
+    "id": "test-02",
+    "agent_id": "agent-maison",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "executer-commandes",
+    "but": "Piloter la maison",
+    "critere_reussite": "etat termine ; le compte rendu cite les lampes Salon et Cuisine ; aucune action déclarée",
+    "contexte": "",
+    "limites": {
+      "outils_interdits": []
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-11-02T22:00:00+01:00",
+    "donnees": {
+      "appels": [
+        {
+          "outil": "read_lumieres",
+          "arguments": {}
+        }
+      ]
+    }
+  },
+  "critere_reussite": "etat termine ; le compte rendu cite les lampes Salon et Cuisine ; aucune action déclarée",
+  "pages_web": {
+    "/api/test/lights": {
+      "contenu": "{\"1\": {\"name\": \"Salon\", \"state\": {\"on\": true, \"bri\": 127, \"hue\": 8000, \"sat\": 120, \"reachable\": true}}, \"2\": {\"name\": \"Cuisine\", \"state\": {\"on\": false, \"bri\": 254, \"reachable\": true}}}",
+      "type": "application/json"
+    }
+  },
+  "etats_acceptes": [
+    "termine"
+  ],
+  "compte_rendu_contient": [
+    "Salon",
+    "Cuisine"
+  ]
+}

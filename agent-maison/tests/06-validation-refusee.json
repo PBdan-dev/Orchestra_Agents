@@ -1,0 +1,50 @@
+{
+  "description": "action irréversible refusée par l'utilisateur",
+  "mission": {
+    "version": 1,
+    "id": "test-06",
+    "agent_id": "agent-maison",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "executer-commandes",
+    "but": "Piloter la maison",
+    "critere_reussite": "validation_requise émise pour action_sensitive_tv_message ; refus respecté : action déclarée « refusé », TV jamais contactée, état partiel",
+    "contexte": "",
+    "limites": {
+      "outils_interdits": []
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-11-02T22:00:00+01:00",
+    "donnees": {
+      "appels": [
+        {
+          "outil": "action_sensitive_tv_message",
+          "arguments": {
+            "texte": "Le dîner est prêt",
+            "raison": "Prévenir la famille"
+          }
+        }
+      ]
+    }
+  },
+  "critere_reussite": "validation_requise émise pour action_sensitive_tv_message ; refus respecté : action déclarée « refusé », TV jamais contactée, état partiel",
+  "messages": [
+    {
+      "apres_evenement": "validation_requise",
+      "type": "validation",
+      "decision": "refuse",
+      "portee": "cette_fois"
+    }
+  ],
+  "evenements_attendus": [
+    "validation_requise"
+  ],
+  "etats_acceptes": [
+    "partiel"
+  ],
+  "compte_rendu_contient": [
+    "refusé"
+  ]
+}

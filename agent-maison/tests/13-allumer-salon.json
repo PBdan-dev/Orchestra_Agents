@@ -1,0 +1,41 @@
+{
+  "description": "cas nominal avec le modèle : allumer la lampe du salon à 50 %",
+  "mission": {
+    "version": 1,
+    "id": "test-13",
+    "agent_id": "agent-maison",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "piloter-maison",
+    "but": "Régler l'éclairage",
+    "critere_reussite": "la lampe Salon reçoit une seule commande d'allumage à environ 50 % (PUT /api/test/lights/1/state), action déclarée avec sa raison ; la Cuisine n'est pas touchée ; état termine",
+    "contexte": "",
+    "limites": {
+      "outils_interdits": []
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-11-03T09:00:00+01:00",
+    "donnees": {
+      "demande": "Allume la lampe du salon à 50 %."
+    }
+  },
+  "critere_reussite": "la lampe Salon reçoit une seule commande d'allumage à environ 50 % (PUT /api/test/lights/1/state), action déclarée avec sa raison ; la Cuisine n'est pas touchée ; état termine",
+  "etats_acceptes": [
+    "termine"
+  ],
+  "pages_web": {
+    "/api/test/lights": {
+      "type": "application/json",
+      "contenu": "{\"1\": {\"name\": \"Salon\", \"state\": {\"on\": false, \"bri\": 254, \"reachable\": true}}, \"2\": {\"name\": \"Cuisine\", \"state\": {\"on\": false, \"bri\": 254, \"reachable\": true}}}"
+    },
+    "/api/test/lights/1/state": {
+      "type": "application/json",
+      "contenu": "[{\"success\": {\"/lights/1/state/on\": true}}]"
+    }
+  },
+  "pages_jamais_demandees": [
+    "/api/test/lights/2/state"
+  ]
+}

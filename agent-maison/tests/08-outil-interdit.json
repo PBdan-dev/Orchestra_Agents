@@ -1,0 +1,41 @@
+{
+  "description": "outil interdit par limites.outils_interdits",
+  "mission": {
+    "version": 1,
+    "id": "test-08",
+    "agent_id": "agent-maison",
+    "projet": "PROJET_DE_TEST",
+    "type_tache": "executer-commandes",
+    "but": "Piloter la maison",
+    "critere_reussite": "outil interdit par la mission non exécuté : état partiel, motif « interdit »",
+    "contexte": "",
+    "limites": {
+      "outils_interdits": [
+        "action_tv_alimentation"
+      ]
+    },
+    "format_retour": {
+      "type": "texte"
+    },
+    "validation": [],
+    "cree_le": "2026-11-02T22:00:00+01:00",
+    "donnees": {
+      "appels": [
+        {
+          "outil": "action_tv_alimentation",
+          "arguments": {
+            "allumer": false,
+            "raison": "Éteindre la TV"
+          }
+        }
+      ]
+    }
+  },
+  "critere_reussite": "outil interdit par la mission non exécuté : état partiel, motif « interdit »",
+  "etats_acceptes": [
+    "partiel"
+  ],
+  "compte_rendu_contient": [
+    "interdit"
+  ]
+}
