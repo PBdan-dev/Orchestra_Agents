@@ -69,7 +69,7 @@ def lire_texte(s):
 
 
 def rejouer(kit, paquet, ollama, modele, sortie):
-    r = subprocess.run([sys.executable, "-I", str(Path(kit) / "scripts" / "rejouer_tests.py"), str(paquet),
+    r = subprocess.run([sys.executable, "-I", "-X", "utf8", str(Path(kit) / "scripts" / "rejouer_tests.py"), str(paquet),
                         "--ollama", ollama, "--modele", modele, "--sortie", str(sortie)],
                        capture_output=True, text=True, encoding="utf-8")
     (Path(sortie) / "rejeu.txt").parent.mkdir(parents=True, exist_ok=True)
